@@ -1,7 +1,7 @@
 <template>
   <div class="firstBackground">
     <div class="backgroundDog">
-   <img :src="image1" class="img1"/>
+   <img  :src="image1" class="img1"/>
   
   </div>
   <div class="secondNav">
@@ -13,23 +13,32 @@
   </div>
   <div class="msg1">
     <p id="message1">{{this.message1}}</p>
-
+ 
+  </div>
+  <div class="logo">
+    <p id="message2">{{this.message2}}</p>
   </div>
   </div>
 </template>
 
 <script>
 import image1 from '../assets/dog2.jpg';
+import image2 from '../assets/logo.png';
 export default {
     data(){
         return {
             image1,
             nav2Items:['PROJECT NOVA','ABOUT NOVA','ABOUT US'],
-            message1:'Welcome',
-            message2:'Check us out',
+            message1:'WELCOME TO',
+            message2:'K9 PAWS BEAHVIOR DOG TRAINING',
+            image2,
 
         }
-    }
+    },
+    
+       
+        
+    
 
 }
 </script>
@@ -40,12 +49,30 @@ export default {
     grid-template-columns: auto;
 
 }
+.logo{
+    z-index: 100;
+    position: absolute;
+    top:280px;
+    left:25%;
+    font-size: 50px;
+}
 .msg1{
     position:absolute;
     top:250px;
     left:45%;
-    font-size:100px;
+    font-size:30px;
     z-index: 100;
+    animation: welcome 4s;
+}
+@keyframes welcome {
+0%{
+   left:0%;   
+    }
+   
+    
+    100%{
+        left:45%;
+    }
 }
 li{
     z-index: 100;

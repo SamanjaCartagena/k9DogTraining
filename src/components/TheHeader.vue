@@ -11,18 +11,44 @@
     </div>
     
   <div id="top-socials">
-    <h2 >Socials</h2>
+     <ul>
+        <li v-for="icon in socialIcons" :key="icon">
+            <img @click="socialClicked(icon)" :src="icon" style="width:25px;height:25px;"/>
+        </li>
+
+    </ul>
   </div>
     
   </div>
 </template>
 
 <script>
+import facebook from '../assets/facebook.png';
+import instagram from '../assets/instagram.png';
+import tiktok from '../assets/tiktok.png';
+import youtube from '../assets/youtube.png';
 export default {
     data(){
         return{
-            navItems:['Home','About','Projects','Videos','News']
+            navItems:['Home','About','Projects','Videos','News'],
+            socialIcons:[facebook,instagram,tiktok,youtube]
         }
+    },
+    methods:{
+      socialClicked(v){
+       if(v.includes(tiktok)){
+        console.log(v)
+       }
+       else if(v.includes(youtube)){
+        console.log("You Tube was clicked")
+       }
+       else if(v.includes(instagram)){
+        console.log("Instagram was clicked")
+       }
+       else if(v.includes(facebook)){
+        console.log("FGacebook was clicked")
+       }
+      }
     }
 
 }
@@ -36,6 +62,7 @@ export default {
 }
 #top-socials{
     justify-self:end; margin-right:20px;
+    margin-top:50px;
 }
 li{
     text-decoration: none;
