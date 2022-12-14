@@ -16,7 +16,7 @@ import TheHeader from "./components/TheHeader.vue"
   </div>
 </template>
 
-<style scoped>
+<style >
 
 
 

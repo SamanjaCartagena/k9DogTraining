@@ -6,19 +6,28 @@
   </div>
   <div class="secondNav">
     <ul>
+        <center>
      <li v-for="item in nav2Items" :key="item.id">{{item}}</li>
+        </center>
    </ul>
+  </div>
+  <div class="msg1">
+    <p id="message1">{{this.message1}}</p>
+
   </div>
   </div>
 </template>
 
 <script>
-import image1 from '../assets/dog1.jpg';
+import image1 from '../assets/dog2.jpg';
 export default {
     data(){
         return {
             image1,
-            nav2Items:['projectNova','aboutNova','AboutUs'],
+            nav2Items:['PROJECT NOVA','ABOUT NOVA','ABOUT US'],
+            message1:'Welcome',
+            message2:'Check us out',
+
         }
     }
 
@@ -31,36 +40,44 @@ export default {
     grid-template-columns: auto;
 
 }
+.msg1{
+    position:absolute;
+    top:250px;
+    left:45%;
+    font-size:100px;
+    z-index: 100;
+}
 li{
     z-index: 100;
-    background-color: blue;
     width:100%;
+    display: inline-block;
     height:auto;
+    color:#000000;
+    width:150px;
+    padding:10px;
+    font-weight: bold;
+}
+li:hover{
+    background: white;
     color:black;
+    cursor: pointer;
 }
 .secondNav{
     position:absolute;
     top:150px;
-    left:40%;
-    background-color:transparent;
-    width:100%;
+    left:35%;
+    width:auto;
     height:auto;
-    overflow: hidden;
-        animation: animate 2s ;
+        animation: animate 4s ;
 }
  @keyframes animate {
-        0% {
-            width: 0px;
-            height: 0px;
-        }
-        30% {
-            width: 50px;
-            height: 0px;
-        }
-        60% {
-            width: 50px;
-            height: 80px;
-        }
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+
     }
 .backgroundDog{
     width:100%;
@@ -74,8 +91,39 @@ li{
     z-index: 0;
 }
 @media only screen and (max-width: 400px) {
+.msg1{
+    position:absolute;
+    top:300px;
+    left:30%;
+    font-size:25px;
+    z-index: 100;
+}
+li{
+    z-index: 100;
+    width:100%;
+    display: inline;
+    height:auto;
+    color:#000000;
+    width:40%;
+    left:0%;
+    padding:10px;
+    font-weight: bold;
+}
+.secondNav{
+    position:absolute;
+    top:150px;
+    left:0%;
+    background-color: green;
+    height:auto;
+    font-size: 15px;
+    justify-self: start;
+}
 
+}
 
+body{
+    padding:0;
+    margin:0;
 }
 
 
