@@ -10,8 +10,7 @@ import TheHeader from "./components/TheHeader.vue"
 <template>
 
   <div>
-    <the-header></the-header>
-    <background></background>
+  <router-view></router-view>
   
   </div>
 </template>
@@ -23,6 +22,9 @@ import TheHeader from "./components/TheHeader.vue"
 body{
   padding:0;
   margin:0;
+  font-family:'Didact Gothic';
+
+
 }
 #app{
   padding:0;

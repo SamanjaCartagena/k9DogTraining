@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div style=" margin-left:20px;">
-   <h1  >
-     K9 Dog Training
-   </h1>
-    <ul>
-        <li v-for="nav in navItems" :key="nav">{{nav}}</li>
+    <div style=" margin-left:55px;">
+   <p class="headerName" >
+     K9 DOG TRAINING
+   </p>
+    <ul style="position:relative; bottom:10px;">
+        <li v-for="nav in navItems" @click="navClicked(nav)" :key="nav">{{nav}}</li>
 
     </ul>
     </div>
@@ -30,7 +30,7 @@ import youtube from '../assets/youtube.png';
 export default {
     data(){
         return{
-            navItems:['Home','About','Projects','Videos','News'],
+            navItems:['Home','About','Projects','Videos','Gallery','News'],
             socialIcons:[facebook,instagram,tiktok,youtube]
         }
     },
@@ -40,14 +40,22 @@ export default {
         console.log(v)
        }
        else if(v.includes(youtube)){
+        var anchor = document.createElement('a');
+        anchor.href = 'https://www.youtube.com/@novathewonderdog9404';
+        anchor.target="_blank";
+        anchor.click();
+
         console.log("You Tube was clicked")
        }
        else if(v.includes(instagram)){
         console.log("Instagram was clicked")
        }
        else if(v.includes(facebook)){
-        console.log("FGacebook was clicked")
+        console.log("Facebook was clicked")
        }
+      },
+      navClicked(v){
+        console.log(v+" was clicked")
       }
     }
 
@@ -55,6 +63,9 @@ export default {
 </script>
 
 <style scoped>
+.headerName{
+    font-size: 25px;
+}
 .container{
     display:grid;
     grid-template-columns:auto auto;
@@ -75,15 +86,19 @@ li{
 li:hover{
     cursor:pointer;
 }
-@media only screen and (max-width: 400px) {
-  h1 {
+@media only screen and (max-width: 700px) {
+  .headerName {
     font-size:25px;
   }
   #top-socials{
     font-size:15px;
-    justify-self: stretch;
-    background-color: yellow;
-    margin-left:20px;
+    justify-self:start;
+    position:absolute;
+    top:95px;
+    left:13%;
+    
+        margin-top:0px;
+
     
   }
   li{
