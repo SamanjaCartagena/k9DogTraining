@@ -28,15 +28,15 @@
           <input type="email" placeholder="Email Address"/>
      
         <input type="text" placeholder="Phone Number"/>
-      
-
+        <textarea  rows="4" cols="48">
+        </textarea>
          </form>
         </slot>
        </section>
 
       <footer class="modal-footer">
         <slot name="footer">
-          This is the default footer!
+          <p>Copyrights &copy. Black Mountain K9 Search and Rescue</p>
         </slot>
         <button
           type="button"
@@ -56,6 +56,7 @@ export default {
  methods: {
       close() {
         this.$emit('close');
+        
 
       },
     },
@@ -73,7 +74,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index:500;
+    z-index:600;
   }
 
   .modal {
@@ -94,7 +95,8 @@ export default {
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
+    background-color: #f6b243;
+    color: black;
     justify-content: space-between;
   }
 
@@ -120,14 +122,29 @@ export default {
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
-    color: #4AAE9B;
+    color: black;
     background: transparent;
   }
 
   .btn-green {
     color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
+    background: #f6b243;
+    padding:5px;
+    border: 1px solid black;
     border-radius: 2px;
+  }
+  input{
+    height:40px;
+    width:90%;
+    margin:5px;
+    position: relative;
+    left:10px;
+  }
+  textarea{
+      height:80px;
+    width:90%;
+    margin:5px;
+    position: relative;
+    left:10px;
   }
 </style>
