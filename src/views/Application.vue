@@ -3,7 +3,7 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          This is the default title!
+          Apply for your dog
         </slot>
         <button
           type="button"
@@ -16,7 +16,21 @@
 
       <section class="modal-body">
         <slot name="body">
-          This is the default body!
+          <center>
+          <img :src="this.logo" style="width:150px; height:150px;"/>
+          </center>
+         <form>
+        
+        <input type="text" placeholder="First Name"/>
+        <input type="text" placeholder="Last Name"/>
+         
+     
+          <input type="email" placeholder="Email Address"/>
+     
+        <input type="text" placeholder="Phone Number"/>
+      
+
+         </form>
         </slot>
        </section>
 
@@ -38,7 +52,7 @@
 
 <script>
 export default {
- 
+ props:['logo'],
  methods: {
       close() {
         this.$emit('close');
@@ -93,6 +107,8 @@ export default {
   .modal-body {
     position: relative;
     padding: 20px 10px;
+    height:500px;
+    width:400px;
   }
 
   .btn-close {

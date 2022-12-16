@@ -4,7 +4,7 @@
    <img  :src="image1" class="img1"/>
   
   </div>
-  <application @close="closeModal" v-if="this.showModal"></application>
+  <application @close="closeModal" :logo="this.image2" v-if="this.showModal"></application>
   <div class="secondNav">
     <ul>
         <center>
