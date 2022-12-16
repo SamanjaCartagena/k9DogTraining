@@ -4,10 +4,11 @@
    <img  :src="image1" class="img1"/>
   
   </div>
+  <application @close="closeModal" v-if="this.showModal"></application>
   <div class="secondNav">
     <ul>
         <center>
-     <li v-for="item in nav2Items" :key="item.id">{{item}}</li>
+     <li v-for="item in nav2Items" :key="item.id" @click="navbar(item)">{{item}}</li>
         </center>
    </ul>
   </div>
@@ -16,7 +17,7 @@
  
   </div>
   <div class="logo">
-    <p class="mess2">{{this.message2}}</p>
+   <center> <p class="mess2">{{this.message2}}</p></center>
     <img :src="this.image2" class="logoImage"/>
     <p ref="bottom" @click="scrollDown" class="findMore">Find Out More</p>
 
@@ -26,7 +27,6 @@
   <the-videos>
   </the-videos>
   
-      <p  class="blog">Check out my blog</p>
 
 
   </div>
@@ -35,30 +35,47 @@
 
 <script>
 import image1 from '../assets/dog2.png';
-import image2 from '../assets/logo.png';
+import image2 from '../assets/black.png';
 import TheVideos from '../components/TheVideos.vue';
 import flag from '../assets/flag.jpg';
+import Application from '../views/Application.vue';
 export default {
     components:{
-      TheVideos, 
+      TheVideos, Application
     },
     data(){
         return {
             image1,
             nav2Items:['APPLY','DONATE','VOLUNTEER'],
             message1:'WELCOME TO',
-            message2:'K9 PAWS BEAHVIOR DOG TRAINING',
+            message2:'BLACK MOUNTAIN K9 SEARCH & RESCUE',
             image2,
             flag,
+            showModal:false,
 
         }
     },
     methods:{
+        closeModal(){
+         this.showModal= false;
+        },
+        navbar(v){
+          if(v.includes("APPLY")){
+            this.showModal=true;
+          }
+          else if(v.includes("DONATE")){
+            console.log("Donate was clicked")
+          }
+          else if(v.includes("VOLUNTEER")){
+            console.log("Volunteer was clicked")
+          }
+        },
         scrollDown(){
 
       this.$refs["bottom"].scrollIntoView({ behavior: "smooth" })
     
-        }
+        },
+        
     }
     
        
@@ -75,33 +92,18 @@ export default {
     
 
 }
-.blog{
-     color:#fff;
-    z-index:120;
-    position: absolute;
-    top:550px;
-    left:45%;
-    font-size: 25px;
-    padding:10px;
-}
-.blog:hover{
-     background-color: #fff;
-    color:black;
-    cursor: pointer;
-    border-radius:.5px;
-    border: 1px solid black;
-}
+
 .findMore{
     color:#fff;
     z-index:120;
     position: absolute;
-    top:550px;
+    top:590px;
     left:45%;
     font-size: 25px;
     padding:10px;
 }
 .findMore:hover{
-    background-color: #fff;
+    background-color: #f6b243;
     color:black;
     cursor: pointer;
     border-radius:.5px;
@@ -115,7 +117,7 @@ export default {
     
 }
 .mess2{
-    color:#fff;
+    color:#f6b243;
     animation: msg2 4s;
      position: absolute;
     top:280px;
@@ -129,8 +131,10 @@ export default {
 }
 .logoImage{
     position: absolute;
-    top:350px;
-    left:25%;
+    top:400px;
+    left:45%;
+    height:200px;
+    width:200px;
     font-size: 50px;
     z-index: 100;
     animation: logo1 4s;
@@ -187,7 +191,7 @@ li{
     font-weight: bold;
 }
 li:hover{
-    background: white;
+    background: #f6b243;
     color:black;
     cursor: pointer;
 }
@@ -219,22 +223,82 @@ li:hover{
     height:auto;
     z-index: 0;
 }
-@media only screen and (max-width: 700px) {
+
+
+@media only screen and (max-width: 900px) {
   .firstBackground{
-    background-color: blue;
   }
+  .logoImage{
+    position: absolute;
+    top:330px;
+    left:39%;
+    height:150px;
+    width:150px;
+    font-size: 50px;
+    z-index: 100;
+    animation: logo1 4s;
+}
 .msg1{
     position:absolute;
-    top:190px;
-    left:35%;
+    top:200px;
+    left:40%;
     font-size:20px;
     z-index: 100;
 }
 .findMore{
     display: none;
 }
+
+#videos{
+    position: absolute;
+    top:550px;
+
+   
+}
+li{
+    z-index: 100;
+    width:100%;
+    display: inline;
+    position: relative;
+    top:10px;
+    
+    right:40px;
+    height:auto;
+    color:#fff;
+    width:40%;
+    
+    padding:10px;
+    font-weight: bold;
+}
+
+.mess2{
+      position:absolute;
+    top:240px;
+    left:25%;
+    font-size:25px;
+    z-index: 100;
+}
+
+}
+@media only screen and (max-width: 700px) {
+
+.msg1{
+    position:absolute;
+    top:120px;
+    left:32%;
+    font-size:18px;
+    z-index: 100;
+}
+.findMore{
+    display: none;
+}
 .logoImage{
-   display: none;
+   display: block;
+   height:100px;
+   width:100px;
+   position: absolute;
+   top:1%;
+   left:1%;
 
 }
 #videos{
@@ -247,10 +311,13 @@ li{
     z-index: 100;
     width:100%;
     display: inline;
+    position: relative;
+    bottom:85px;
+    right:30px;
     height:auto;
     color:#fff;
     width:40%;
-    left:0%;
+    
     padding:10px;
     font-weight: bold;
 }
@@ -269,17 +336,77 @@ li{
 }
 .mess2{
       position:absolute;
-    top:230px;
-    left:20%;
-    font-size:25px;
+    top:150px;
+    left:9%;
+    font-size:18px;
     z-index: 100;
 }
 
 }
 
-body{
-    padding:0;
-    margin:0;
+@media only screen and (max-width: 500px) {
+.msg1{
+    position:absolute;
+    top:120px;
+    left:32%;
+    font-size:18px;
+    z-index: 100;
+}
+.findMore{
+    display: none;
+}
+.logoImage{
+   display: block;
+   height:100px;
+   width:100px;
+   position: absolute;
+   top:1%;
+   left:1%;
+   z-index: 200;
+
+}
+#videos{
+    position: absolute;
+    top:350px;
+
+   
+}
+.secondNav{
+    position:absolute;
+    top:80px;
+    left:20%;
+    height:auto;
+    font-size: 15px;
+    
+    justify-content: stretch;
+    justify-items: stretch;
+
+    
+
+}
+li{
+      z-index: 500;
+    width:100%;
+    display: inline;
+    height:auto;
+    position: relative;
+    bottom:500px;
+    color:#fff;
+    width:150px;
+    padding:10px;
+    font-weight: bold;
+}
+
+.mess2{
+       position:absolute;
+    top:150px;
+    left:9%;
+    font-size:18px;
+    z-index: 100;
+}
+
+
+
 }
 
 

@@ -1,4 +1,5 @@
 <template>
+<center>
   <div class="videos">
 
     <div v-for="vid in videos" :key="vid" id="videoContainer" >
@@ -7,6 +8,7 @@
         
     </div>
   </div>
+</center>
 </template>
 
 <script>
@@ -44,6 +46,45 @@ iframe{
     justify-content:end;
     
 }
+@media only screen and (max-width:900px) {
+  .videos{
+    margin:10px;
+   width:100%;
+   position: relative;
+   top:50px;
+   left:7%;
+   display:grid;
+   grid-template-columns:auto auto;
+     
+}
+#videoContainer{
+   width:100%;
+   height:100%;
+  
+}
+iframe{
+   width:90%;
+   height:300;
+   
+
+}
+}
+@media only screen and (max-width:800px) {
+  .videos{
+    margin:10px;
+   width:100%;
+ 
+   display:grid;
+   grid-template-columns:auto auto;
+     
+}
+iframe{
+   width:95%;
+   height:300;
+   
+
+}
+}
 @media only screen and (max-width:700px) {
     .videos{
     margin:10px;
@@ -66,4 +107,5 @@ iframe{
 
 }
 }
+
 </style>
