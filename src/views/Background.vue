@@ -22,6 +22,7 @@
     <p ref="bottom" @click="scrollDown" class="findMore">Find Out More</p>
 
   </div>
+  
 
   <div id="videos">
   <the-videos>
@@ -37,7 +38,6 @@
 import image1 from '../assets/dog2.png';
 import image2 from '../assets/black.png';
 import TheVideos from '../components/TheVideos.vue';
-import flag from '../assets/flag.jpg';
 import Application from '../views/Application.vue';
 export default {
     components:{
@@ -50,7 +50,7 @@ export default {
             message1:'WELCOME TO',
             message2:'BLACK MOUNTAIN K9 SEARCH & RESCUE',
             image2,
-            flag,
+            
             showModal:false,
 
         }

@@ -1,25 +1,80 @@
 <template>
-<center>
-  <div class="videos">
+<div>
+   <center>
+      <div class="searchInputs">
+      <input type="search" class="searchBar" v-model="searchVideos" placeholder="Search Videos" />
+      </div>
+   </center>
 
-    <div v-for="vid in videos" :key="vid" id="videoContainer" >
+<center>
+   
+  <div class="videos">
+    <div v-for="vid in filteredVideos.slice(0,8)" :key="vid" id="videoContainer" >
         
-  <iframe  width="90%" height="315" :src="vid" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe  width="90%" height="315" :src="vid.vid"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
     </div>
   </div>
 </center>
+
+</div>
 </template>
 
 <script>
 export default {
     data(){
         return{
-            
-            videos:['https://www.youtube.com/embed/uZqDGzDl1iM?autoplay=1&mute=1','https://www.youtube.com/embed/rR5JZ0cbAsQ?autoplay=1&mute=1',
-            'https://www.youtube.com/embed/gzwmmT78qZ8?autoplay=1&mute=1','https://www.youtube.com/embed/HmUPaHuYxOM?autoplay=1&mute=1','https://www.youtube.com/embed/rlQOFIuco8Q?autoplay=1&mute=1',
-            'https://www.youtube.com/embed/r6LsZZW-pEg?autoplay=1&mute=1','https://www.youtube.com/embed/A-UH1FV0qXI?autoplay=1&mute=1','https://www.youtube.com/embed/K66v5CpKUXM?autoplay=1&mute=1']
+            searchVideos:'',
+            videos:[
+                {
+                  id:1,
+                  title:'Search and rescue finals',
+                  vid:'https://www.youtube.com/embed/uZqDGzDl1iM'
+                },
+                {
+                  id:2,
+                  title:'Big Test Day',
+                  vid:'https://www.youtube.com/embed/rR5JZ0cbAsQ'
+                },
+                 {
+                  id:3,
+                  title:'A Day in the Mountains',
+                  vid:'https://www.youtube.com/embed/dSCYRs8OT9o'
+                },
+                {
+                  id:4,
+                  title:'New Place',
+                  vid:'https://www.youtube.com/embed/A-UH1FV0qXI'
+                },
+                {
+                  id:5,
+                  title:'Meet Ollie, the K9 Sar Newbie',
+                  vid:'https://www.youtube.com/embed/gzwmmT78qZ8'
+                },
+
+               {
+                  id:6,
+                  title:'Nova Schools the NewBees',
+                  vid:'https://www.youtube.com/embed/tMAWaYJoKzo'
+                },
+                {
+                  id:7,
+                  title:'Novas First Search',
+                  vid:'https://www.youtube.com/embed/r6LsZZW-pEg'
+                },
+                {
+                  id:8,
+                  title:'Searching searching',
+                  vid:'https://www.youtube.com/embed/rlQOFIuco8Q'
+                },
+               ]
         }
+    }, 
+    computed:{
+      filteredVideos(){
+         return this.videos.filter(video=>video.title.includes(this.searchVideos))
+      }
     }
     
 
@@ -27,6 +82,25 @@ export default {
 </script>
 
 <style scoped>
+.searchBar{
+   background-image:url('../assets/search.png');
+   background-repeat:no-repeat;
+   background-size:3%;
+   background-position-x: 1%;
+   background-position-y: 50%;
+   text-align: center;
+  position:relative;
+  border-radius:0.8;
+  width:30%;
+  bottom:100px;
+ z-index:200;
+
+   
+}
+.searchInputs{
+   display: flex;
+   justify-content: center;
+}
 
 #videoContainer{
      
@@ -47,6 +121,18 @@ iframe{
     
 }
 @media only screen and (max-width:900px) {
+      .searchBar{
+ 
+   text-align: center;
+  position:relative;
+  border-radius:0.8;
+  left:9%;
+  width:80%;
+ top:50px;
+ z-index:200;
+
+   
+}
   .videos{
     margin:10px;
    width:100%;
@@ -85,7 +171,20 @@ iframe{
 
 }
 }
+
 @media only screen and (max-width:700px) {
+   .searchBar{
+ 
+   text-align: center;
+  position:relative;
+  border-radius:0.8;
+  left:20%;
+  width:80%;
+  bottom:200px;
+ z-index:200;
+
+   
+}
     .videos{
     margin:10px;
    width:100%;
@@ -106,6 +205,43 @@ iframe{
    
 
 }
+}
+@media only screen and (max-width:500px) {
+   .searchBar{
+  
+   text-align: center;
+  position:relative;
+  border-radius:0.8;
+  width:60%;
+  
+ z-index:200;
+
+   
+}
+  .videos{
+    margin:10px;
+   width:100%;
+   display:grid;
+   grid-template-columns:auto;
+ position:relative;
+  border-radius:0.8;
+   width:98%;
+   bottom:120px;
+  z-index:200;  
+   
+}
+#videoContainer{
+   width:100%;
+   height:100%;
+  
+}
+iframe{
+   width:90%;
+   height:300;
+   
+
+}
+
 }
 
 </style>
