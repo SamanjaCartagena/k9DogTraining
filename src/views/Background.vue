@@ -4,7 +4,7 @@
    <img  :src="image1" class="img1"/>
   
   </div>
-  <application @close="closeModal" :logo="this.image2" v-if="this.showModal"></application>
+  <application :message="this.message1" @close="closeModal" :logo="this.image2" v-if="this.showModal"></application>
   <div class="secondNav">
     <ul>
         <center>
@@ -19,7 +19,6 @@
   <div class="logo">
    <center> <p class="mess2">{{this.message2}}</p></center>
     <img :src="this.image2" class="logoImage"/>
-    <p ref="bottom" @click="scrollDown" class="findMore">Find Out More</p>
 
   </div>
   
@@ -46,7 +45,7 @@ export default {
     data(){
         return {
             image1,
-            nav2Items:['APPLY','DONATE','VOLUNTEER'],
+            nav2Items:['MISSION','DONATE','VOLUNTEER'],
             message1:'WELCOME TO',
             message2:'BLACK MOUNTAIN K9 SEARCH & RESCUE',
             image2,
@@ -60,7 +59,7 @@ export default {
          this.showModal= false;
         },
         navbar(v){
-          if(v.includes("APPLY")){
+          if(v.includes("MISSION")){
             this.showModal=true;
           }
           else if(v.includes("DONATE")){
@@ -70,12 +69,8 @@ export default {
             console.log("Volunteer was clicked")
           }
         },
-        scrollDown(){
-
-      this.$refs["bottom"].scrollIntoView({ behavior: "smooth" })
-    
-        },
-        
+      
+         
     }
     
        
@@ -138,6 +133,8 @@ export default {
     font-size: 50px;
     z-index: 100;
     animation: logo1 4s;
+    border:5px solid white;
+    border-radius:50%;
 }
 .msg2{
     font-size:30px;

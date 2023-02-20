@@ -1,20 +1,48 @@
 <template>
+<div style="height:1000px; width:100%">
+   <div>
+   
+  </div>
 <div>
    <center>
-      <div class="searchInputs">
-      <input type="search" class="searchBar" v-model="searchVideos" placeholder="Search Videos" />
-      </div>
-   </center>
+    <img :src="this.photo" style="width:40%; height:600px;" />
+        <img :src="this.photo2" style="width:40%; height:600px;" />
 
+   </center>
+</div>
+<some-photos></some-photos>
+<br/>
 <center>
+  
    
   <div class="videos">
-    <div v-for="vid in filteredVideos.slice(0,8)" :key="vid" id="videoContainer" >
+    <div  style="width:100%; height:250px; color:white;" >
         
-  <iframe  width="90%" height="315" :src="vid.vid"  frameborder="0" 
+  <iframe  width="60%" height="400" src="https://www.youtube.com/embed/uZqDGzDl1iM"  frameborder="0" 
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
     </div>
+    <div style="width:100%; height:250px; color:white;">
+      <h3 class="videoTitles">Big Day</h3>
+      <p > A human's nose is approximately 5 million neurons that lets us smell our environment. <br/>A dog has approximately 
+        200 million neurons dedicated to small. We can't just compete in the area of smelling.
+      </p>
+    </div>
+    
+    
+      <div style="width:100%; height:250px; color:white;" >
+      <h3 class="videoTitles">Big Day</h3>
+         <p > A human's nose is approximately 5 million neurons that lets us smell our environment. <br/>A dog has approximately 
+        200 million neurons dedicated to small. We can't just compete in the area of smelling.
+      </p>
+    </div>
+        <div style="width:100%; height:250px; color:white; position:relative; bottom:20px"  >
+        
+  <iframe  width="60%" height="400" src="https://www.youtube.com/embed/rR5JZ0cbAsQ"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+    </div>
+  
   </div>
 </center>
 
@@ -22,59 +50,25 @@
 </template>
 
 <script>
+import brochure from '../assets/brochure1.jpg'
+import brochure2 from '../assets/brochure2.jpg'
+import SomePhotos from '../components/SomePhotos.vue'
 export default {
+  
+  components:{SomePhotos},
     data(){
         return{
             searchVideos:'',
-            videos:[
-                {
-                  id:1,
-                  title:'Search and rescue finals',
-                  vid:'https://www.youtube.com/embed/uZqDGzDl1iM'
-                },
-                {
-                  id:2,
-                  title:'Big Test Day',
-                  vid:'https://www.youtube.com/embed/rR5JZ0cbAsQ'
-                },
-                 {
-                  id:3,
-                  title:'A Day in the Mountains',
-                  vid:'https://www.youtube.com/embed/dSCYRs8OT9o'
-                },
-                {
-                  id:4,
-                  title:'New Place',
-                  vid:'https://www.youtube.com/embed/A-UH1FV0qXI'
-                },
-                {
-                  id:5,
-                  title:'Meet Ollie, the K9 Sar Newbie',
-                  vid:'https://www.youtube.com/embed/gzwmmT78qZ8'
-                },
-
-               {
-                  id:6,
-                  title:'Nova Schools the NewBees',
-                  vid:'https://www.youtube.com/embed/tMAWaYJoKzo'
-                },
-                {
-                  id:7,
-                  title:'Novas First Search',
-                  vid:'https://www.youtube.com/embed/r6LsZZW-pEg'
-                },
-                {
-                  id:8,
-                  title:'Searching searching',
-                  vid:'https://www.youtube.com/embed/rlQOFIuco8Q'
-                },
-               ]
+            photo:brochure,
+            photo2:brochure2,
+          
         }
     }, 
     computed:{
-      filteredVideos(){
-         return this.videos.filter(video=>video.title.includes(this.searchVideos))
-      }
+     
+    },
+    methods:{
+      
     }
     
 
@@ -82,36 +76,23 @@ export default {
 </script>
 
 <style scoped>
-.searchBar{
-   background-image:url('../assets/search.png');
-   background-repeat:no-repeat;
-   background-size:3%;
-   background-position-x: 1%;
-   background-position-y: 50%;
-   text-align: center;
-  position:relative;
-  border-radius:0.8;
-  width:30%;
-  bottom:100px;
- z-index:200;
 
-   
-}
-.searchInputs{
-   display: flex;
-   justify-content: center;
+.videoTitles{
+  color:white
 }
 
 #videoContainer{
      
 }
 .videos{
-    margin:10px;
     position: relative;
       display: grid;
-      grid-template-columns: auto auto auto auto;
-   top:-110px;
+      height:800px;
+      width:100%;
+      grid-template-columns: auto auto ;
+   top:-20px;
    z-index:100;
+   background-color: black;
  
 
 }
@@ -172,7 +153,8 @@ iframe{
 }
 }
 
-@media only screen and (max-width:700px) {
+@medi
+    SomePhotosa only screen and (max-width:700px) {
    .searchBar{
  
    text-align: center;
@@ -243,5 +225,6 @@ iframe{
 }
 
 }
+
 
 </style>

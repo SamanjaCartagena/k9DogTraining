@@ -52,7 +52,7 @@
 
 <script>
 export default {
- props:['logo'],
+ props:['logo','message'],
  methods: {
       close() {
         this.$emit('close');

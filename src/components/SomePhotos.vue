@@ -1,20 +1,15 @@
 <template>
   <div class="pics">
     <center>
-   <marquee direction="right" width="100%" behavior="alternate" loop="5">
-    <ul>
-      <li v-for="pic in pics" :key="pic">
-      <img style="height:270px; width:400px;" :src="pic"/>
-      </li>
-    </ul>
-   </marquee>&nbsp;
-   <marquee direction="left" width="100%" behavior="alternate">
-    <ul>
-      <li v-for="pic in picAlter" :key="pic">
-      <img style="height:270px; width:400px; position:relative; bottom:30px;" :src="pic"/>
-      </li>
-    </ul>
-   </marquee>
+ 
+   <el-carousel :interval="4000" type="card" height="500px">
+    <el-carousel-item v-for="pic in pics" :key="pic">
+      <h3 text="2xl" justify="center">
+          <img :src="pic" />
+      </h3>
+    </el-carousel-item>
+  </el-carousel>
+ 
     </center>
   </div>
 </template>
@@ -48,9 +43,8 @@ export default {
  height:600px;
  width:100%;
  position:relative;
- top:500px;
+
 z-index:0;
- background-color: black;
     
 }
 li{
@@ -68,5 +62,20 @@ li{
     
 }
 
+}
+.el-carousel__item h3 {
+  color: transparent;
+  opacity: 1;
+  line-height: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: black;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: black;
 }
 </style>
