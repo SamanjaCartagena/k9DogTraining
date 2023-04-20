@@ -17,7 +17,7 @@
       <section class="modal-body">
         <slot name="body">
           <center>
-          <img :src="this.logo" style="width:150px; height:150px;"/>
+          <img :src="this.logo" class="logo1" />
           </center>
          <form>
         
@@ -64,6 +64,15 @@ export default {
 </script>
 
 <style>
+.logo1{
+  width:150px;
+   height:150px;
+   animation: spin 4s;
+}
+@keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);} 
+}
   .modal-backdrop {
     position: fixed;
     top: 0;

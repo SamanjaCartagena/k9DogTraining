@@ -6,7 +6,6 @@
 
 
    </background>
-        <p   class="findMore">Find Out More</p>
     <br/>
     <br/>
 

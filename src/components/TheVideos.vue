@@ -1,45 +1,47 @@
 <template>
 <div style="height:1000px; width:100%">
-   <div>
    
-  </div>
 <div>
-   <center>
-    <img :src="this.photo" style="width:40%; height:600px;" />
-        <img :src="this.photo2" style="width:40%; height:600px;" />
+   <center>   
+    <ul>
+   <!--  <li v-for="photo in photos" :key="photo.id">
+      <img :src="photo" style="width:600px; height:600px;"/>
+     </li> !-->
+    </ul>
+    
 
    </center>
 </div>
 <some-photos></some-photos>
+<second-middle></second-middle>
 <br/>
 <center>
   
    
   <div class="videos">
-    <div  style="width:100%; height:250px; color:white;" >
+    <div  style="width:100%; height:250px; color:white; padding-top:10px" >
         
   <iframe  width="60%" height="400" src="https://www.youtube.com/embed/uZqDGzDl1iM"  frameborder="0" 
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
     </div>
     <div style="width:100%; height:250px; color:white;">
-      <h3 class="videoTitles">Big Day</h3>
-      <p > A human's nose is approximately 5 million neurons that lets us smell our environment. <br/>A dog has approximately 
+      <p style=" font-size:30px; color:#f6b243;" class="videoTitles">Big Day</p>
+      <p style="padding:20px; font-size:25px;"> A human's nose is approximately 5 million neurons that lets us smell our environment. <br/>A dog has approximately 
         200 million neurons dedicated to small. We can't just compete in the area of smelling.
       </p>
     </div>
     
     
       <div style="width:100%; height:250px; color:white;" >
-      <h3 class="videoTitles">Big Day</h3>
-         <p > A human's nose is approximately 5 million neurons that lets us smell our environment. <br/>A dog has approximately 
-        200 million neurons dedicated to small. We can't just compete in the area of smelling.
+      <p style="padding:10px; font-size:30px; color:#f6b243;" class="videoTitles"><strong>How to train a search dog</strong></p>
+         <p style="padding:20px; font-size:25px;">A trained search dog can replace 20 to 30 human searchers on foot. There are a variety of ways a trained search dog works ! Be it tracking trailing or 
+          airscent. Any of them is far superior to anything a human can do. Bottom line is a search dog can smell your odor that is yours alone, just like a finger print.
       </p>
     </div>
-        <div style="width:100%; height:250px; color:white; position:relative; bottom:20px"  >
+        <div style="width:100%; height:250px; color:white; position:relative; bottom:20px; padding-bottom:10px"  >
         
-  <iframe  width="60%" height="400" src="https://www.youtube.com/embed/rR5JZ0cbAsQ"  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="60%" height="400" src="https://www.youtube.com/embed/A-UH1FV0qXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         
     </div>
   
@@ -53,14 +55,15 @@
 import brochure from '../assets/brochure1.jpg'
 import brochure2 from '../assets/brochure2.jpg'
 import SomePhotos from '../components/SomePhotos.vue'
+import SecondMiddle from './SecondMiddle.vue'
+
 export default {
   
-  components:{SomePhotos},
+  components:{SomePhotos, SecondMiddle},
     data(){
         return{
             searchVideos:'',
-            photo:brochure,
-            photo2:brochure2,
+           photos:[brochure, brochure2]
           
         }
     }, 
@@ -76,7 +79,11 @@ export default {
 </script>
 
 <style scoped>
-
+li{
+  display: inline;
+  position: relative;
+  bottom: 100px;
+}
 .videoTitles{
   color:white
 }
@@ -90,10 +97,13 @@ export default {
       height:800px;
       width:100%;
       grid-template-columns: auto auto ;
-   top:-20px;
+     top:110px;
    z-index:100;
-   background-color: black;
- 
+   background-image: url('../assets/stars.webp');
+   background-repeat: none;
+   background-size: 100%;
+ border-top: .1px solid white;
+ border-bottom:.1px solid white;
 
 }
 iframe{
@@ -106,6 +116,7 @@ iframe{
  
    text-align: center;
   position:relative;
+  top:50px;
   border-radius:0.8;
   left:9%;
   width:80%;
@@ -114,16 +125,7 @@ iframe{
 
    
 }
-  .videos{
-    margin:10px;
-   width:100%;
-   position: relative;
-   top:50px;
-   left:7%;
-   display:grid;
-   grid-template-columns:auto auto;
-     
-}
+
 #videoContainer{
    width:100%;
    height:100%;
@@ -153,8 +155,7 @@ iframe{
 }
 }
 
-@medi
-    SomePhotosa only screen and (max-width:700px) {
+@media only screen and (max-width:700px) {
    .searchBar{
  
    text-align: center;

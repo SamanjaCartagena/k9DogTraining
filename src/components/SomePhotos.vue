@@ -2,13 +2,12 @@
   <div class="pics">
     <center>
  
-   <el-carousel :interval="4000" type="card" height="500px">
-    <el-carousel-item v-for="pic in pics" :key="pic">
-      <h3 text="2xl" justify="center">
-          <img :src="pic" />
-      </h3>
-    </el-carousel-item>
-  </el-carousel>
+  <ul>
+    <li v-for="pic in pics" :key="pic.id">
+
+    <img class="dogPics" :src="pic" />
+    </li>
+  </ul>
  
     </center>
   </div>
@@ -28,10 +27,12 @@ import pic10 from '../assets/pic10.jpg'
 import pic13 from '../assets/pic13.jpg'
 import pic14 from '../assets/pic14.jpg'
 import pic12 from '../assets/pic12.jpg'
+import pic15 from '../assets/dog3.jpg'
+import veteran from '../assets/veterans.jpg'
 export default {
   data(){
     return{
-        pics:[pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10,pic14,pic13,pic12],
+        pics:[pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10,pic14,pic13,pic12,pic15,veteran],
         picAlter:[pic10,pic2,pic4,pic3,pic6,pic5,pic8,pic7,pic9,pic1]
     }
   }
@@ -40,16 +41,30 @@ export default {
 
 <style scoped>
 .pics{
- height:600px;
+ height:850px;
  width:100%;
  position:relative;
-
+ top:130px;
 z-index:0;
+background-image: url('../assets/bald.jpg');
+background-repeat: no-repeat;
+background-size: 100%;
+border-top:1px solid white;
+
     
 }
+
+.dogPics{
+  width:300px; height:250px;  border:.1px solid white;
+    border-radius:.05px;
+    margin:10px;
+    z-index:0;
+}
+
 li{
     display: inline;
     margin:10px;
+  
 }
 @media only screen and (max-width:800px) {
 .pics{
@@ -63,19 +78,5 @@ li{
 }
 
 }
-.el-carousel__item h3 {
-  color: transparent;
-  opacity: 1;
-  line-height: 200px;
-  margin: 0;
-  text-align: center;
-}
 
-.el-carousel__item:nth-child(2n) {
-  background-color: black;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: black;
-}
 </style>

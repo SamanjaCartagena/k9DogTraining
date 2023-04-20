@@ -9,7 +9,9 @@
 </li>
   
 </ul>
-<center> <p style="position:relative; bottom: 30px;">Copyrights &copy. Black Mountain K9 Search and Rescue</p> </center>
+<center> 
+
+  <p style="position:relative; bottom: 35px;">Copyrights &copy. Black Mountain K9 Search and Rescue</p> </center>
 </footer>
   </div>
 </template>
@@ -59,13 +61,13 @@ export default {
 
 <style scoped>
 footer{
-  height:180px;
+  height:200px;
   width:100%;
   position: relative;
-  top:550px;
+  top:1250px;
   color:white;
   background-color: black;
-  z-index:500;
+  z-index:5000;
 }
 li{
   text-decoration: none;
@@ -91,7 +93,7 @@ li{
 }
 p{
   position: relative;
-  top:20px;
+ 
 }
 
 }

@@ -19,15 +19,15 @@
   <div class="logo">
    <center> <p class="mess2">{{this.message2}}</p></center>
     <img :src="this.image2" class="logoImage"/>
-
+    <p class="msg3">BLACK K9 SEARCH AND RESCUE WAS CREATED TO ASSIST FAMILIES IN FINDING MISSING INDIVIDUALS ! </p>
   </div>
-  
-
+  <middle-section></middle-section>
   <div id="videos">
   <the-videos>
   </the-videos>
   
-
+<the-footer>
+</the-footer>
 
   </div>
   </div>
@@ -37,10 +37,15 @@
 import image1 from '../assets/dog2.png';
 import image2 from '../assets/black.png';
 import TheVideos from '../components/TheVideos.vue';
+
 import Application from '../views/Application.vue';
+import MiddleSection from '../components/MiddleSection.vue';
+import TheFooter from '../components/TheFooter.vue';
+import SecondMiddle from '../components/SecondMiddle.vue';
 export default {
     components:{
-      TheVideos, Application
+      TheVideos, Application, MiddleSection, SecondMiddle,
+        TheFooter
     },
     data(){
         return {
@@ -59,13 +64,13 @@ export default {
          this.showModal= false;
         },
         navbar(v){
-          if(v.includes("MISSION")){
+          if(v.includes("VOLUNTEER")){
             this.showModal=true;
           }
           else if(v.includes("DONATE")){
             console.log("Donate was clicked")
           }
-          else if(v.includes("VOLUNTEER")){
+          else if(v.includes("MISSION")){
             console.log("Volunteer was clicked")
           }
         },
@@ -81,10 +86,38 @@ export default {
 </script>
 
 <style scoped>
+.msg3{
+    color:white;
+    position: relative;
+    text-align: center;
+    bottom:80px;
+    font-size: 25px;
+    overflow:hidden;
+    width:fit-content;
+      border-right: .15em solid #f6b243; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .10em; /* Adjust as needed */
+   animation: 
+    typing 2.5s steps(30, end),
+    blink-caret .75s step-end infinite;
+
+}
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  30% { border-color: #f6b243 }
+}
 .firstBackground{
     display: grid;
     grid-template-columns: auto;
-    
+    margin:auto
 
 }
 
@@ -132,9 +165,14 @@ export default {
     width:200px;
     font-size: 50px;
     z-index: 100;
-    animation: logo1 4s;
     border:5px solid white;
     border-radius:50%;
+       animation: spin 4s;
+
+}
+@keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);} 
 }
 .msg2{
     font-size:30px;
