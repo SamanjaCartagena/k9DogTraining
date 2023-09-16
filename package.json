@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@fortawesome/vue-fontawesome": "^3.0.2",
-    "element-plus": "^2.2.32",
+    "bulma": "^0.9.4",
+    "element-plus": "^2.3.14",
     "font-awesome-icons": "^1.6.0",
     "vue": "^3.2.45",
     "vue-play": "^3.2.1",

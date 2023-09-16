@@ -1,4 +1,7 @@
 <template>
+   <div>
+         <el-row>
+ <el-col :span="24"><div class="grid-content">
   <div class="firstBackground">
     <div class="backgroundDog">
    <img  :src="image1" class="img1"/>
@@ -21,31 +24,39 @@
     <img :src="this.image2" class="logoImage"/>
     <p class="msg3">BLACK K9 SEARCH AND RESCUE WAS CREATED TO ASSIST FAMILIES IN FINDING MISSING INDIVIDUALS ! </p>
   </div>
-  <middle-section></middle-section>
   <div id="videos">
-  <the-videos>
-  </the-videos>
+
   
-<the-footer>
-</the-footer>
+
 
   </div>
   </div>
+  </div>
+  <middle-section></middle-section>
+  <some-photos></some-photos>
+  <footer-page></footer-page>
+ </el-col>
+          </el-row>
+          
+          
+   </div>
 </template>
 
 <script>
 import image1 from '../assets/dog2.png';
 import image2 from '../assets/black.png';
+
 import TheVideos from '../components/TheVideos.vue';
 
 import Application from '../views/Application.vue';
 import MiddleSection from '../components/MiddleSection.vue';
-import TheFooter from '../components/TheFooter.vue';
-import SecondMiddle from '../components/SecondMiddle.vue';
+import SomePhotos from '../components/SomePhotos.vue';
+
+import FooterPage from '../components/FooterPage.vue';
 export default {
     components:{
-      TheVideos, Application, MiddleSection, SecondMiddle,
-        TheFooter
+      TheVideos, Application, MiddleSection, SomePhotos, FooterPage
+       
     },
     data(){
         return {
@@ -148,7 +159,7 @@ export default {
     color:#f6b243;
     animation: msg2 4s;
      position: absolute;
-    top:280px;
+    top:200px;
     left:25%;
     font-size: 50px;
     
@@ -159,7 +170,7 @@ export default {
 }
 .logoImage{
     position: absolute;
-    top:400px;
+    top:300px;
     left:45%;
     height:200px;
     width:200px;
@@ -176,11 +187,13 @@ export default {
 }
 .msg2{
     font-size:30px;
+    position: absolute;
+    top:150px;
 }
 .msg1{
     position:absolute;
-    top:250px;
-    left:45%;
+    top:150px;
+    left:43%;
     font-size:30px;
     z-index: 100;
     animation: welcome 4s;
@@ -223,7 +236,8 @@ li{
     color:#fff;
     width:150px;
     padding:10px;
-    font-weight: bold;
+    position: relative;
+    bottom:120px;
 }
 li:hover{
     background: #f6b243;
@@ -260,188 +274,63 @@ li:hover{
 }
 
 
-@media only screen and (max-width: 900px) {
-  .firstBackground{
-  }
-  .logoImage{
-    position: absolute;
-    top:330px;
-    left:39%;
-    height:150px;
-    width:150px;
-    font-size: 50px;
-    z-index: 100;
-    animation: logo1 4s;
-}
-.msg1{
-    position:absolute;
-    top:200px;
-    left:40%;
-    font-size:20px;
-    z-index: 100;
-}
-.findMore{
-    display: none;
-}
 
-#videos{
-    position: absolute;
-    top:550px;
 
-   
-}
-li{
-    z-index: 100;
-    width:100%;
-    display: inline;
-    position: relative;
-    top:10px;
+
+  
     
-    right:40px;
-    height:auto;
-    color:#fff;
-    width:40%;
-    
-    padding:10px;
-    font-weight: bold;
-}
 
-.mess2{
-      position:absolute;
-    top:240px;
-    left:25%;
-    font-size:25px;
-    z-index: 100;
-}
-
-}
 @media only screen and (max-width: 700px) {
 
-.msg1{
-    position:absolute;
-    top:120px;
-    left:32%;
-    font-size:18px;
-    z-index: 100;
-}
-.findMore{
-    display: none;
+
+.img1{
+    max-width:100%;
+    height:auto;
 }
 .logoImage{
-   display: block;
-   height:100px;
-   width:100px;
-   position: absolute;
-   top:1%;
-   left:1%;
-
-}
-#videos{
-    position: absolute;
-    top:550px;
-
-   
+ position: absolute;
+    top:140px;
+    left:38%;
+    height:100px;
+    width:100px;
+    font-size: 50px;
+    z-index: 100;
+    border:1px solid white;
+    border-radius:50%;
+       animation: spin 4s;
 }
 li{
-    z-index: 100;
+        z-index: 100;
     width:100%;
-    display: inline;
-    position: relative;
-    bottom:85px;
-    right:30px;
+    display: inline-block;
     height:auto;
     color:#fff;
-    width:40%;
-    
+    width:50px;
+    margin:10px;
     padding:10px;
-    font-weight: bold;
-}
-.secondNav{
-    position:absolute;
-    top:160px;
-    left:20%;
-    height:auto;
-    font-size: 15px;
-    
-    justify-content: stretch;
-    justify-items: stretch;
+    position: relative;
+    bottom:140px;
+    right:35%;
 
-    
 
 }
 .mess2{
-      position:absolute;
-    top:150px;
-    left:9%;
-    font-size:18px;
-    z-index: 100;
+       color:#f6b243;
+    animation: msg1 4s;
+     position: absolute;
+    top:70px;
+    left:5%;
+    font-size: 20px;
 }
-
-}
-
-@media only screen and (max-width: 500px) {
 .msg1{
-    position:absolute;
-    top:120px;
-    left:32%;
-    font-size:18px;
-    z-index: 100;
-}
-.findMore{
     display: none;
 }
-.logoImage{
-   display: block;
-   height:100px;
-   width:100px;
-   position: absolute;
-   top:1%;
-   left:1%;
-   z-index: 200;
-
+.msg2{
+    display: none;
 }
-#videos{
-    position: absolute;
-    top:350px;
-
-   
+.msg3{
+    display: none;
 }
-.secondNav{
-    position:absolute;
-    top:80px;
-    left:20%;
-    height:auto;
-    font-size: 15px;
-    
-    justify-content: stretch;
-    justify-items: stretch;
-
-    
-
-}
-li{
-      z-index: 500;
-    width:100%;
-    display: inline;
-    height:auto;
-    position: relative;
-    bottom:500px;
-    color:#fff;
-    width:150px;
-    padding:10px;
-    font-weight: bold;
-}
-
-.mess2{
-       position:absolute;
-    top:150px;
-    left:9%;
-    font-size:18px;
-    z-index: 100;
-}
-
-
-
 }
 
 

@@ -16,7 +16,7 @@ import TheHeader from "./components/TheHeader.vue"
 </template>
 
 <style >
-
+@import 'bulma/css/bulma.min.css';
 
 
 body{

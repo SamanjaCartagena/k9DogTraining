@@ -55,11 +55,10 @@
 import brochure from '../assets/brochure1.jpg'
 import brochure2 from '../assets/brochure2.jpg'
 import SomePhotos from '../components/SomePhotos.vue'
-import SecondMiddle from './SecondMiddle.vue'
 
 export default {
   
-  components:{SomePhotos, SecondMiddle},
+  components:{SomePhotos},
     data(){
         return{
             searchVideos:'',

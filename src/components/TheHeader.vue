@@ -1,246 +1,151 @@
+
+
 <template>
-  <div class="container">
-    <div style=" margin-left:55px;">
-   <p class="headerName" >
-     BLACK MOUNTAIN K9 SEARCH AND RESCUE
-   </p>
-    <ul style="position:relative; bottom:10px;">
-        <li class="firstNav" v-for="nav in navItems" @click="navClicked(nav)" :key="nav">{{nav}}</li>
+  <div>
+    <nav class="navbar" style='height:100px;' role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+   
 
-    </ul>
-    <ul style="text-decoration:none; width: 100%; " >
-      <center>
-        <li v-show="sizeNav" class="secondNav" 
-
-        style="text-decoration:none;"
-        
-         v-for="nav in navItems" @click="showNav" :key="nav">{{nav}}</li>
-      </center>
-
-    </ul>
-    </div>
-    
-  <div id="top-socials">
-     <ul>
-        <li v-for="icon in socialIcons" :key="icon" class="socialNav">
-            <img @click="socialClicked(icon)" :src="icon" style="width:25px;height:25px;"/>
-        </li>    </ul>
-
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-                         <img :src="this.listIcon"  class="listIcons" @click="showNav"/>
 
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" style='font-size: 25px;'>
+        Black Mountain Search Rescue
+      </a>
+
+      <a class="navbar-item">
+        Gallery
+      </a>
+ <a class="navbar-item">
+        News
+      </a>
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          
+          <a class="button " @click="drawer = true" style='background-color:black;'>
+            Follow
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<hr style="border:1px solid #d5a341; padding:0px; margin:0px;"/>
+  
+
+   <el-drawer  v-model="drawer" title="I am the title" :with-header="false">
+         <p style='padding-top:80px; padding-left:40px; font-size:25px; font-family:Times New Roman'><strong>Follow me on</strong></p>
+        <button class='iconbtn'><img :src="this.twitter" class='iconimage'/>Twitter</button><br/>
+        <button class='iconbtn'><img :src="this.facebook" class='iconimage'/>Facebook</button><br/>
+        <button class='iconbtn'><img :src="this.instagram" class='iconimage'/>Instagram</button><br/>
+        <button class='iconbtn'><img :src="this.tiktok" class='iconimage'/>Tiktok</button><br/>
+                <button class='iconbtn'><img :src="this.pinterest" class='iconimage'/>Pinterest</button><br/>
+                                <button class='iconbtn'><img :src="this.linkedin" class='iconimage'/>Linkedin</button><br/>
+                                                                <button class='iconbtn'><img :src="this.discord" class='iconimage'/>Discord</button><br/>
+        <p style='padding-top:80px; padding-left:40px; font-size:25px; font-family:Times New Roman'><strong>Sign up for my monthly Newsletter</strong></p>
+        <input type='email' placeholder='Email' class='emailsignup'/>
+         <img :src="this.arrow" style='width:40px;height:40px; position:relative; left:50px;; top:50px;border:1px solid #d5a341'/>
+
+  </el-drawer>
   </div>
 </template>
 
 <script>
-import facebook from '../assets/facebook.png';
-import instagram from '../assets/instagram.png';
-import tiktok from '../assets/tiktok.png';
-import youtube from '../assets/youtube.png';
-import listIcon from '../assets/listIcon.png';
+import twitter from '../assets/twitter.png'
+import facebook from '../assets/facebook.png'
+import tiktok from '../assets/tiktok.png'
+import instagram from '../assets/instagram.png'
+import linkedin from '../assets/linkedin.png'
+import pinterest from '../assets/pinterest.png'
+import arrow from '../assets/arrow.png'
+import discord from '../assets/discord.png'
 export default {
-    data(){
-        return{
-            navItems:['Home','About','Projects','Videos','Gallery','News'],
-            socialIcons:[facebook,instagram,tiktok,youtube],
-            listIcon,
-            sizeNav:false
-        }
-    },
-    methods:{
-      showNav(){
-        this.sizeNav = !this.sizeNav;
-      },
-      socialClicked(v){
-       if(v.includes(tiktok)){
-         var anchor1 = document.createElement('a');
-        anchor1.href = 'https://www.tiktok.com/@novathewonderdog';
-        anchor1.target="_blank";
-        anchor1.click();
-       }
-       else if(v.includes(youtube)){
-        var anchor = document.createElement('a');
-        anchor.href = 'https://www.youtube.com/@novathewonderdog9404';
-        anchor.target="_blank";
-        anchor.click();
+  data(){
+    return{
+      drawer:false,
+      twitter:twitter,
+      facebook:facebook,
+      tiktok:tiktok,
+      instagram:instagram,
+      linkedin:linkedin,
+      pinterest:pinterest,
+      arrow:arrow,
+      discord:discord
 
-       }
-       else if(v.includes(instagram)){
-        
-       }
-       else if(v.includes(facebook)){
-         var anchor2 = document.createElement('a');
-        anchor2.href = 'https://www.facebook.com/groups/409712361276865';
-        anchor2.target="_blank";
-        anchor2.click();
-       }
-      },
-      navClicked(v){
-        console.log(v+" was clicked")
-      }
     }
+  }
 
 }
 </script>
 
 <style scoped>
-.headerName{
-    font-size: 25px;
-}
 
-.listIcons{
- width:50px;
-  height:50px;
-  z-index: 100;
-  display: block;
-  position: absolute;
-  top:30px;
-  right:30px;
-  display:none;
- 
+.navbar{
+    background-color: black;
+    color:white;
+}
+.navbar:hover{
+     text-decoration:#d5a341 ;
 
 }
-.secondNav{
-  position:relative;
-        width:100%;
-        height:35px;
-        top:65px;
-        right:23%;
-        z-index:500;
-        display:block;
-        animation: sizeNavAnimate 4s;
-        background-color:#f6b243;
-        color:black;
-        padding:10px;
-        border:1px solid black;
-        text-decoration:none;
+a{
+    color:#d5a341;
 }
-
-.container{
-    display:grid;
-    grid-template-columns:auto auto;
-    height:120px;
+a:hover{
+    color:#d5a341;
+    text-decoration: underline;
+    background-color: black;
 }
-#top-socials{
-    justify-self:end; margin-right:20px;
-    margin-top:50px;
+.navbar-item{
+  background-color: black;
+  color:#d5a341;
+  font-family: 'Times New Roman', Times, serif;
 }
- .firstNav{
-    text-decoration: none;
-    display: inline;
-    justify-self:start;
+.navbar-item:hover{
+  background-color: black;
+  color:#d5a341;
+}
+.iconbtn{
+    margin:10px;
+    background-color: black;
+    width:250px;
+    height:60px;
+    color:#d5a341;
     padding:10px;
-    position: relative;
-    right:50px;
+    border:.5px solid #d5a341;
+    border-radius:3px;
+    font-size: 20px;
 }
-.firstNav:hover{
-    cursor:pointer;
+.iconbtn:hover{
+    background-color: white;
+    color:black;
+    cursor: pointer;
 }
-.socialNav{
-    text-decoration: none;
-    display: inline;
-    justify-self:start;
-    padding:10px;
-    position: relative;
-    right:50px;
-}
-.socialNav:hover{
-    cursor:pointer;
-}
-body{
-    padding:0;
-    margin:0;
-}
-@keyframes sizeNavAnimate {
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-}
-@media only screen and (min-width:700px){
-  .secondNav {
-    display:none;
-  }
-}
-@media only screen and (max-width:800px){
-  .headerName {
-    font-size:25px;
-    position: absolute;
-    left:5%;
-    top:5px;
-    display:block;
-    font-weight: bold;
-  }
-    .firstNav{
-      text-decoration: none;
-    display: inline;
-    justify-self:start;
-    position: relative;
-    padding:10px;
-    top:65px;
-    right:16%;
-}
-.socialNav{
-    text-decoration: none;
-    display: inline;
-    justify-self:start;
-    padding:10px;
-    position: relative;
-    left:15px;
-}
- 
-}
-@media only screen and (max-width: 700px) {
-  .headerName {
-    font-size:20px;
-    position: absolute;
-    left:5%;
-    top:50px;
-    display: none;
-    font-weight: bold;
-  }
-  ul{
-    text-decoration: none;
-
-  }
-    .container{
-    display: grid;
-    grid-template-columns: auto auto;
-    height:80px;
-  }
-
-
-  #top-socials{
-
-}
-  .firstNav{
+.iconimage{
+    width:25px;
+    height:25px;
+    float:left;
     
-    display:none;
+   
 }
-.socialNav{
-  
-    display:none;
-}
-.listIcons{
-   width:40px;
-  height:40px;
-  z-index: 100;
-  display: block;
-  position: absolute;
-  top:20px;
-  right:20px;
- 
-}
+.emailsignup{
+    border:0px;
+    border-bottom:2px solid #d5a341;
+    width:250px;
+    position: relative;
+    left:40px;
+    top:20px;
+    height:40px;
 
-  
-  .container{
-    display: grid;
-    grid-template-columns: auto;
-    height:80px;
-  }
 }
-
-
 </style>

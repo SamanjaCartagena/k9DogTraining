@@ -16,10 +16,9 @@
 import TheHeader from '../components/TheHeader.vue'
 import Background from '../views/Background.vue'
 import SomePhotos from '../components/SomePhotos.vue'
-import TheFooter from '../components/TheFooter.vue'
 export default {
  components:{
-    TheHeader, Background, SomePhotos, TheFooter
+    TheHeader, Background, SomePhotos 
  },
  methods:{
 
@@ -48,10 +47,5 @@ export default {
 .completeContainer{
 
 }
-@media only screen and (max-width:800px) {
- .completeContainer{
-  display: grid;
-  grid-template-columns: auto;
- }
-}
+
 </style>

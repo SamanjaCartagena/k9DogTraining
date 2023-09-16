@@ -1,16 +1,31 @@
 <template>
-  <div class="pics">
-    <center>
- 
-  <ul>
-    <li v-for="pic in pics" :key="pic.id">
-
-    <img class="dogPics" :src="pic" />
-    </li>
-  </ul>
- 
-    </center>
+<div class="pics">
+<div class="columns">
+  <div class="column">
+    <img :src="this.pic1"  class='images' />
   </div>
+  <div class="column">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/uZqDGzDl1iM?si=e07GehfTTUIkU4eW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
+  <div class="column">
+    <img :src="this.pic3" class='images'/>
+  </div>
+  <div class="column">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/dSCYRs8OT9o?si=CKfh4fIWwlKRppig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
+</div>
+<div class="columns">
+  <div class="column">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/gzwmmT78qZ8?si=e0JCd2KYmvxsuCbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
+  <div class="column">
+    <img :src="this.pic6" class='images'/>
+  </div>
+  <div class="column">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/tMAWaYJoKzo?si=3C3PDnh31k0J-1-r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
+  <div class="column">
+    <img :src="this.pic8" class='images'/>
+  </div>
+</div>
+
+</div>
 </template>
 
 <script>
@@ -32,8 +47,23 @@ import veteran from '../assets/veterans.jpg'
 export default {
   data(){
     return{
-        pics:[pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10,pic14,pic13,pic12,pic15,veteran],
-        picAlter:[pic10,pic2,pic4,pic3,pic6,pic5,pic8,pic7,pic9,pic1]
+        pic1:pic1,
+        pic2:pic2,
+        pic3:pic3,
+        pic4:pic4,
+        pic5:pic5,
+        pic6:pic6,
+        pic7:pic7,
+        pic8:pic8,
+        pic9:pic9,
+        pic10:pic10,
+        pic13:pic13,
+        pic14:pic14
+    }
+  },
+  methods:{
+    modals(v){
+     console.log("The value is "+v)
     }
   }
 }
@@ -41,42 +71,66 @@ export default {
 
 <style scoped>
 .pics{
- height:850px;
- width:100%;
- position:relative;
- top:130px;
-z-index:0;
-background-image: url('../assets/bald.jpg');
-background-repeat: no-repeat;
-background-size: 100%;
-border-top:1px solid white;
+  position: relative;
+  top:753px;
+  height:auto;
+  width:100%;
+  z-index: 1000;
+    border-bottom:2px solid #d5a341 ;
 
     
 }
-
-.dogPics{
-  width:300px; height:250px;  border:.1px solid white;
-    border-radius:.05px;
-    margin:10px;
-    z-index:0;
+iframe{
+  border:1px solid #d5a341;
 }
-
-li{
-    display: inline;
-    margin:10px;
-  
+.column{
+  margin:0px;
+  padding:0px;
 }
-@media only screen and (max-width:800px) {
+.columns{
+  margin:0px;
+  padding:0px;
+}
+.images{
+  width:100%;
+  height:350px;
+  border:1px solid #d5a341;
+  border-radius: 3px;
+
+}
+.images:hover{
+  cursor: pointer;
+}
+@media only screen and (max-width: 700px) {
 .pics{
- height:500px;
- width:100%;
- position:relative;
- top:2450px;
+  position: absolute;
+  top:490px;
 
- background-color: black;
+
+  height:auto;
+  width:100%;
+  z-index: 1000;
+ 
+    border-bottom:2px solid #d5a341 ;
+
     
 }
-
+.images{
+  width:100%;
+  height:300px;
+ margin:0px;
+ padding:0px;
+ border:1px solid #d5a341;
 }
+.column{
+  margin:0px;
+  padding:0px;
+}
+.columns{
+  margin:0px;
+  padding: 0px;
+}
+}
+
 
 </style>
