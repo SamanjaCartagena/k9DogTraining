@@ -285,13 +285,14 @@ li:hover{
     height:auto;
 }
 .logoImage{
- position: relative;
+ position: absolute;
  text-align: center;
+ top:-90px;
+ left:5%;
     height:100px;
     width:100px;
     font-size: 50px;
     z-index: 100;
-    border:1px solid white;
     border-radius:50%;
        animation: spin 4s;
 }
@@ -311,10 +312,11 @@ li{
 
 }
 .mess2{
-         position: relative;
+         position: absolute;
        color:#f6b243;
     animation: msg1 4s;
-
+    top:100px;
+    left:5%;
     z-index: 1000;
     text-align: center;
     font-size: 20px;
