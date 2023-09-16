@@ -3,10 +3,10 @@
 <template>
   <div>
     <nav class="navbar" style='height:100px;' role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+  <div class="navbar-brand" @click='menushow'>
    
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger"  aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -40,6 +40,14 @@
     </div>
   </div>
 </nav>
+<div class='boxshow1' v-if='boxshow'>
+<ul >
+  <li v-for="menu in menus" :key="menu.id" style='border:1px solid white;height:30px;'>
+    {{menu}}
+    </li>
+
+</ul>
+</div>
 <hr style="border:1px solid #d5a341; padding:0px; margin:0px;"/>
   
 
@@ -80,10 +88,24 @@ export default {
       linkedin:linkedin,
       pinterest:pinterest,
       arrow:arrow,
-      discord:discord
+      discord:discord,
+      boxshow:false,
+      menus:['Gallery', 'News', 'Follow', 'About']
 
     }
+  },
+
+methods:{
+  menushow(){
+    if(this.boxshow==false){
+   this.boxshow=true;
+    }
+    else if(this.boxshow==true){
+      this.boxshow=false;
+    }
+   console.log('menu has been clicked')
   }
+}
 
 }
 </script>
@@ -147,5 +169,15 @@ a:hover{
     top:20px;
     height:40px;
 
+}
+.boxshow1{
+  height: auto;
+  width:100%;
+  position:absolute;
+  top:50px;
+  background-color: black;
+  color:#d5a341;
+  z-index: 1000;
+  text-align: center;
 }
 </style>
