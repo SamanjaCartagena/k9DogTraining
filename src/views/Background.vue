@@ -8,10 +8,10 @@
   
   </div>
   <application :message="this.message1" @close="closeModal" :logo="this.image2" v-if="this.showModal"></application>
-  <div class="secondNav">
+  <div class="secondNav"	has-text-centered has-text-justified>
     <ul>
         <center>
-     <li v-for="item in nav2Items" :key="item.id" @click="navbar(item)">{{item}}</li>
+     <li  v-for="item in nav2Items" :key="item.id" @click="navbar(item)">{{item}}</li>
         </center>
    </ul>
   </div>
@@ -158,9 +158,9 @@ export default {
 .mess2{
     color:#f6b243;
     animation: msg2 4s;
-     position: absolute;
-    top:200px;
-    left:25%;
+     position: relative;
+     bottom:500px;
+    text-align: center;
     font-size: 50px;
     
 }
@@ -185,15 +185,11 @@ export default {
     0%  {-webkit-transform: rotate(0deg);}
     100% {-webkit-transform: rotate(360deg);} 
 }
-.msg2{
-    font-size:30px;
-    position: absolute;
-    top:150px;
-}
+
 .msg1{
-    position:absolute;
-    top:150px;
-    left:43%;
+    position:relative;
+    bottom:500px;
+   text-align: center;
     font-size:30px;
     z-index: 100;
     animation: welcome 4s;
@@ -201,13 +197,13 @@ export default {
 }
 @keyframes msg2 {
 0%{
-   left:0%;   
+   right:100%;   
     }
    
     
     100%{
-        left:25%;
-    }
+      right:0%;
+ }
 }
 @keyframes welcome{
 0%{
@@ -216,7 +212,7 @@ export default {
    
     
     100%{
-        left:45%;
+        left:0%;
     }
 }
 @keyframes logo1 {
@@ -235,6 +231,7 @@ li{
     height:auto;
     color:#fff;
     width:150px;
+    text-align: center;
     padding:10px;
     position: relative;
     bottom:120px;
@@ -245,9 +242,9 @@ li:hover{
     cursor: pointer;
 }
 .secondNav{
-    position:absolute;
-    top:150px;
-    left:35%;
+    position:relative;
+    text-align: center;
+     bottom:420px;
     width:auto;
     height:auto;
         animation: animate 4s ;
@@ -288,9 +285,8 @@ li:hover{
     height:auto;
 }
 .logoImage{
- position: absolute;
-    top:140px;
-    left:38%;
+ position: relative;
+ text-align: center;
     height:100px;
     width:100px;
     font-size: 50px;
@@ -309,17 +305,18 @@ li{
     margin:10px;
     padding:10px;
     position: relative;
-    bottom:140px;
-    right:35%;
+    bottom:180px;
+    text-align: center;
 
 
 }
 .mess2{
+         position: relative;
        color:#f6b243;
     animation: msg1 4s;
-     position: absolute;
-    top:70px;
-    left:5%;
+
+    z-index: 1000;
+    text-align: center;
     font-size: 20px;
 }
 .msg1{
