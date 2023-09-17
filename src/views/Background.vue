@@ -101,7 +101,7 @@ export default {
     color:white;
     position: relative;
     text-align: center;
-    bottom:80px;
+    bottom:160px;
     font-size: 25px;
     overflow:hidden;
     width:fit-content;

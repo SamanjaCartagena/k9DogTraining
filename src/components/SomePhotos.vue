@@ -123,8 +123,10 @@ export default {
 .pics{
   position: relative;
   top:740px;
-  background-color: black;
-  height:auto;
+ background-image:url('../assets/bald.jpg');
+  background-repeat: no-repeat;
+  background-size:100%; 
+   height:auto;
   width:100%;
   z-index: 1000;
 
@@ -147,7 +149,7 @@ export default {
   cursor:pointer;
 }
 #next{
-  background-color: black;
+ background-color: black;
   color:white;
   height:50px;
   width:80px;
@@ -180,7 +182,7 @@ iframe{
   height:350px;
   border:1px solid #d5a341;
   border-radius: 3px;
-  animation: fade 1s;
+  animation: fade 5s;
 }
 @keyframes fade {
   from {opacity:.5}
@@ -193,7 +195,7 @@ iframe{
 .pics{
   position: absolute;
   top:490px;
-
+ background-repeat: repeat;
 
   height:auto;
   width:100%;

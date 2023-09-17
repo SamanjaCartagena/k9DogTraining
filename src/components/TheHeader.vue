@@ -53,13 +53,11 @@
 
    <el-drawer  v-model="drawer" title="I am the title" :with-header="false">
          <p style='padding-top:80px; padding-left:40px; font-size:25px; font-family:Times New Roman'><strong>Follow me on</strong></p>
-        <button class='iconbtn'><img :src="this.twitter" class='iconimage'/>Twitter</button><br/>
-        <button class='iconbtn'><img :src="this.facebook" class='iconimage'/>Facebook</button><br/>
-        <button class='iconbtn'><img :src="this.instagram" class='iconimage'/>Instagram</button><br/>
-        <button class='iconbtn'><img :src="this.tiktok" class='iconimage'/>Tiktok</button><br/>
-                <button class='iconbtn'><img :src="this.pinterest" class='iconimage'/>Pinterest</button><br/>
-                                <button class='iconbtn'><img :src="this.linkedin" class='iconimage'/>Linkedin</button><br/>
-                                                                <button class='iconbtn'><img :src="this.discord" class='iconimage'/>Discord</button><br/>
+        <button class='iconbtn' value='facebook' @click='iconclicked($event.target.value)'><img :src="this.facebook" class='iconimage' @click='iconclicked'/>Facebook</button><br/>
+        <button class='iconbtn' value='instagram' @click='iconclicked($event.target.value)'><img :src="this.instagram" class='iconimage' @click='iconclicked'/>Instagram</button><br/>
+        <button class='iconbtn'  @click='iconclicked($event.target.value)' value='tiktok'><img :src="this.tiktok" class='iconimage'/>Tiktok</button><br/>
+                <button class='iconbtn' @click='iconclicked($event.target.value)' value='pinterest'><img :src="this.pinterest" class='iconimage' @click='iconclicked' />Pinterest</button><br/>
+                                <button class='iconbtn' @click='iconclicked($event.target.value)' value='youtube'><img :src="this.youtube" class='iconimage' @click='iconclicked'/>Youtube</button><br/>
         <p style='padding-top:80px; padding-left:40px; font-size:25px; font-family:Times New Roman'><strong>Sign up for my monthly Newsletter</strong></p>
         <input type='email' placeholder='Email' class='emailsignup'/>
          <img :src="this.arrow" style='width:40px;height:40px; position:relative; left:50px;; top:50px;border:1px solid #d5a341'/>
@@ -77,6 +75,7 @@ import linkedin from '../assets/linkedin.png'
 import pinterest from '../assets/pinterest.png'
 import arrow from '../assets/arrow.png'
 import discord from '../assets/discord.png'
+import youtube from '../assets/youtube1.png'
 export default {
   data(){
     return{
@@ -89,6 +88,7 @@ export default {
       pinterest:pinterest,
       arrow:arrow,
       discord:discord,
+      youtube:youtube,
       boxshow:false,
       menus:['Gallery', 'News', 'Follow', 'About']
 
@@ -104,8 +104,22 @@ methods:{
       this.boxshow=false;
     }
    console.log('menu has been clicked')
+  },
+  iconclicked(v){
+    if(v.includes('facebook')){
+      window.open('https://www.facebook.com/groups/409712361276865')
+      
+    }
+    else if(v.includes('tiktok')){
+      window.open('https://www.tiktok.com/@blackmountaink9sa')
+    }
+    else if(v.includes('youtube')){
+      window.open('https://www.youtube.com/@novathewonderdog9404')
+    }
+    
   }
-}
+  
+  }
 
 }
 </script>
