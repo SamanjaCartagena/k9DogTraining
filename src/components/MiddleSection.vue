@@ -22,7 +22,7 @@ export default {
     width:100%;
     z-index: 5000;
     position: relative;
-    top:750px;
+    top:730px;
     background-image: url('../assets/yosemite.jpg');
     border-top:2px solid #d5a341 ;
     border-bottom:2px solid #d5a341 ;

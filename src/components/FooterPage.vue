@@ -20,7 +20,7 @@ export default {
 <style>
 .footer{
     position: relative;
-    top:760px;
+    top:740px;
     background-color: black;
     z-index: 1000;
     color:#d5a341;

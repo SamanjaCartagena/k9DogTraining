@@ -1,16 +1,38 @@
 <template>
 <div class="pics">
-<div class="columns">
+<div class="columns" v-if='!picset1'>
   <div class="column">
-    <img :src="this.pic1"  class='images' />
+    <img :src="this.pic24"  class='images' />
   </div>
   <div class="column">
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/uZqDGzDl1iM?si=e07GehfTTUIkU4eW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
   <div class="column">
+    <div id='previous' @click='previous'>Previous</div>
     <img :src="this.pic3" class='images'/>
+        <div id='next' @click='next'>Next</div>
+
   </div>
   <div class="column">
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/dSCYRs8OT9o?si=CKfh4fIWwlKRppig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
+</div>
+<div class="columns" v-else>
+  <div class="column">
+    <img :src="this.pic20"  class='images' />
+  </div>
+  <div class="column">
+    <img :src="this.pic21"  class='images' />
+  </div>
+  <div class="column">
+    <div id='previous' @click='previous'>Previous</div>
+    <img :src="this.pic22" class='images'/>
+        <div id='next' @click='next'>Next</div>
+
+  </div>
+  <div class="column">
+        <img :src="this.pic23" class='images'/>
+
+
+</div>
 </div>
 <div class="columns">
   <div class="column">
@@ -24,8 +46,8 @@
     <img :src="this.pic8" class='images'/>
   </div>
 </div>
-
 </div>
+
 </template>
 
 <script>
@@ -43,6 +65,11 @@ import pic13 from '../assets/pic13.jpg'
 import pic14 from '../assets/pic14.jpg'
 import pic12 from '../assets/pic12.jpg'
 import pic15 from '../assets/dog3.jpg'
+import pic20 from '../assets/pic20.jpg'
+import pic21 from '../assets/pic21.jpg'
+import pic22 from '../assets/pic22.jpg'
+import pic23 from '../assets/pic23.jpg'
+import pic24 from '../assets/pic24.jpg'
 import veteran from '../assets/veterans.jpg'
 export default {
   data(){
@@ -58,27 +85,82 @@ export default {
         pic9:pic9,
         pic10:pic10,
         pic13:pic13,
-        pic14:pic14
+        pic14:pic14,
+        pic20:pic20,
+        pic21:pic21,
+        pic22:pic22,
+        pic23:pic23,
+        pic24:pic24,
+        picset1:false
     }
   },
   methods:{
     modals(v){
      console.log("The value is "+v)
+    },
+    previous(){
+         if(this.picset1==false){
+          this.picset1=true;
+         }
+         else if(this.picset1==true){
+          this.picset1=false;
+         }
+    },
+     next(){
+         if(this.picset1==false){
+          this.picset1=true;
+         }
+         else if(this.picset1==true){
+          this.picset1=false;
+         }
     }
-  }
+
+      }
 }
 </script>
 
 <style scoped>
 .pics{
   position: relative;
-  top:753px;
+  top:740px;
+  background-color: black;
   height:auto;
   width:100%;
   z-index: 1000;
-    border-bottom:2px solid #d5a341 ;
 
     
+}
+#previous{
+  background-color: black;
+  color:white;
+  height:50px;
+  width:80px;
+  z-index: 1000;
+  position:absolute;
+  top:150px;
+  left:0px;
+  padding-top:10px;
+  padding-left:10px;
+  opacity: .5;
+}
+#previous:hover{
+  cursor:pointer;
+}
+#next{
+  background-color: black;
+  color:white;
+  height:50px;
+  width:80px;
+  z-index: 1000;
+  position:absolute;
+  top:150px;
+  right:0px;
+  padding-top:10px;
+  padding-left:10px;
+  opacity: .5;
+}
+#next:hover{
+  cursor:pointer;
 }
 iframe{
   border:1px solid #d5a341;
@@ -88,6 +170,8 @@ iframe{
   padding:0px;
 }
 .columns{
+  position: relative;
+  bottom:10px;
   margin:0px;
   padding:0px;
 }
@@ -96,7 +180,11 @@ iframe{
   height:350px;
   border:1px solid #d5a341;
   border-radius: 3px;
-
+  animation: fade 1s;
+}
+@keyframes fade {
+  from {opacity:.5}
+  to {opacity: 1;}
 }
 .images:hover{
   cursor: pointer;
