@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import HomePage from '../components/HomePage.vue';
+import HomePage from '../components/Homepage.vue';
+import GalleryPage from '../components/GalleryPage.vue';
 const router=createRouter({
     history: createWebHistory(),
     routes:[{
@@ -7,7 +8,14 @@ const router=createRouter({
         
         component:HomePage, 
     },
-    
+   {
+        path: '/gallery',
+        
+        component:GalleryPage, 
+    },
+   
+  
+  
 ]
 
 });

@@ -13,10 +13,11 @@
     "bulma": "^0.9.4",
     "element-plus": "^2.3.14",
     "font-awesome-icons": "^1.6.0",
-    "vue": "^3.2.45",
+    "vue": "^3.2.36",
     "vue-play": "^3.2.1",
     "vue-router": "^4.0.13",
-    "vue-youtube-embed": "^2.2.2"
+    "vue-youtube-embed": "^2.2.2",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

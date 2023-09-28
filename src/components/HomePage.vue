@@ -1,6 +1,5 @@
 <template>
   <div class="completeContainer">
-   <the-header></the-header>
 
    <background>
 
@@ -13,12 +12,11 @@
 </template>
 
 <script>
-import TheHeader from '../components/TheHeader.vue'
 import Background from '../views/Background.vue'
 import SomePhotos from '../components/SomePhotos.vue'
 export default {
  components:{
-    TheHeader, Background, SomePhotos 
+    Background, SomePhotos 
  },
  methods:{
 

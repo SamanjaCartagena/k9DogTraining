@@ -1,51 +1,90 @@
 <template>
 <div class="pics">
-<div class="columns" v-if='!picset1'>
+<div class="columns" >
   <div class="column">
-    <img :src="this.pic24"  class='images' />
-  </div>
-  <div class="column">
-<iframe width="100%" height="350" src="https://www.youtube.com/embed/uZqDGzDl1iM?si=e07GehfTTUIkU4eW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
-  <div class="column">
-    <div id='previous' @click='previous'>Previous</div>
-    <img :src="this.pic3" class='images'/>
-        <div id='next' @click='next'>Next</div>
+    <div class="card" style='background-color:transparent'>
+  <div class="card-content">
+        <img :src="this.pic24"  class='images' />
 
+    
   </div>
-  <div class="column">
-<iframe width="100%" height="350" src="https://www.youtube.com/embed/dSCYRs8OT9o?si=CKfh4fIWwlKRppig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
-</div>
-<div class="columns" v-else>
-  <div class="column">
-    <img :src="this.pic20"  class='images' />
-  </div>
-  <div class="column">
-    <img :src="this.pic21"  class='images' />
-  </div>
-  <div class="column">
-    <div id='previous' @click='previous'>Previous</div>
-    <img :src="this.pic22" class='images'/>
-        <div id='next' @click='next'>Next</div>
-
-  </div>
-  <div class="column">
-        <img :src="this.pic23" class='images'/>
-
 
 </div>
+  </div>
+    <div class="column">
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic21"  class='images' />
+
+    
+  </div>
+
 </div>
-<div class="columns">
-  <div class="column">
-<iframe width="100%" height="350" src="https://www.youtube.com/embed/gzwmmT78qZ8?si=e0JCd2KYmvxsuCbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
-  <div class="column">
-    <img :src="this.pic6" class='images'/>
+  </div>
+   <div class="column">
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic13"  class='images' />
+
+    
+  </div>
+
+</div>
   </div>
   <div class="column">
-<iframe width="100%" height="350" src="https://www.youtube.com/embed/tMAWaYJoKzo?si=3C3PDnh31k0J-1-r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
-  <div class="column">
-    <img :src="this.pic8" class='images'/>
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic14"  class='images' />
+
+    
+  </div>
+
+</div>
   </div>
 </div>
+<div class="columns" >
+  <div class="column">
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic20"  class='images' />
+
+    
+  </div>
+
+</div>
+  </div>
+    <div class="column">
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic22"  class='images' />
+
+    
+  </div>
+
+</div>
+  </div>
+   <div class="column">
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic23"  class='images' />
+
+    
+  </div>
+
+</div>
+  </div>
+  <div class="column">
+    <div class="card">
+  <div class="card-content">
+        <img :src="this.pic9"  class='images' />
+
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
 </div>
 
 </template>
@@ -122,12 +161,13 @@ export default {
 <style scoped>
 .pics{
   position: relative;
-  top:740px;
- background-image:url('../assets/bald.jpg');
+  top:730px;
+ background-image:url('../assets/flag.jpg');
   background-repeat: no-repeat;
   background-size:100%; 
    height:auto;
   width:100%;
+
   z-index: 1000;
 
     
@@ -144,6 +184,9 @@ export default {
   padding-top:10px;
   padding-left:10px;
   opacity: .5;
+}
+.card{
+  background-color: transparent;
 }
 #previous:hover{
   cursor:pointer;

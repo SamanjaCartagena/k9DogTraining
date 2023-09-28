@@ -15,11 +15,11 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" style='font-size: 25px;'>
+      <a class="navbar-item" style='font-size: 25px;' @click='homepage'>
         Black Mountain Search Rescue
       </a>
 
-      <a class="navbar-item">
+      <a class="navbar-item" @click='gallery'>
         Gallery
       </a>
  <a class="navbar-item">
@@ -40,7 +40,7 @@
     </div>
   </div>
 </nav>
-<div class='boxshow1' v-if='boxshow'>
+<div class='boxshow1' v-if='this.$store.state.boxshow'>
 <ul >
   <li v-for="menu in menus" :key="menu.id" style='border:1px solid white;height:30px;'>
     {{menu}}
@@ -58,9 +58,7 @@
         <button class='iconbtn'  @click='iconclicked($event.target.value)' value='tiktok'><img :src="this.tiktok" class='iconimage'/>Tiktok</button><br/>
                 <button class='iconbtn' @click='iconclicked($event.target.value)' value='pinterest'><img :src="this.pinterest" class='iconimage' @click='iconclicked' />Pinterest</button><br/>
                                 <button class='iconbtn' @click='iconclicked($event.target.value)' value='youtube'><img :src="this.youtube" class='iconimage' @click='iconclicked'/>Youtube</button><br/>
-        <p style='padding-top:80px; padding-left:40px; font-size:25px; font-family:Times New Roman'><strong>Sign up for my monthly Newsletter</strong></p>
-        <input type='email' placeholder='Email' class='emailsignup'/>
-         <img :src="this.arrow" style='width:40px;height:40px; position:relative; left:50px;; top:50px;border:1px solid #d5a341'/>
+  
 
   </el-drawer>
   </div>
@@ -74,7 +72,6 @@ import instagram from '../assets/instagram.png'
 import linkedin from '../assets/linkedin.png'
 import pinterest from '../assets/pinterest.png'
 import arrow from '../assets/arrow.png'
-import discord from '../assets/discord.png'
 import youtube from '../assets/youtube1.png'
 export default {
   data(){
@@ -87,9 +84,9 @@ export default {
       linkedin:linkedin,
       pinterest:pinterest,
       arrow:arrow,
-      discord:discord,
+   
       youtube:youtube,
-      boxshow:false,
+      
       menus:['Gallery', 'News', 'Follow', 'About']
 
     }
@@ -117,6 +114,12 @@ methods:{
       window.open('https://www.youtube.com/@novathewonderdog9404')
     }
     
+  },
+  gallery(){
+    this.$router.push({path:'/gallery'})
+  },
+  homepage(){
+    this.$router.push({path:'/'})
   }
   
   }
