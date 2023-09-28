@@ -1,18 +1,18 @@
 <script setup>
 import Background from "./views/Background.vue"
 import TheHeader from "./components/TheHeader.vue"
-
+import FooterPage from "./components/FooterPage.vue"
   
 
 
-  components: { TheHeader,Background }</script>
+  components: { TheHeader,Background, FooterPage }</script>
 
 <template>
 
   <div>
     <the-header></the-header>
   <router-view></router-view>
-  
+  <footer-page></footer-page>
   </div>
 </template>
 

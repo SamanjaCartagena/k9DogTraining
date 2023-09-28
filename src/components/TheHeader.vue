@@ -71,7 +71,6 @@ import tiktok from '../assets/tiktok.png'
 import instagram from '../assets/instagram.png'
 import linkedin from '../assets/linkedin.png'
 import pinterest from '../assets/pinterest.png'
-import arrow from '../assets/arrow.png'
 import youtube from '../assets/youtube1.png'
 export default {
   data(){
@@ -83,7 +82,6 @@ export default {
       instagram:instagram,
       linkedin:linkedin,
       pinterest:pinterest,
-      arrow:arrow,
    
       youtube:youtube,
       

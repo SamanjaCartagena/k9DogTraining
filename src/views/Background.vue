@@ -34,7 +34,6 @@
   </div>
   <middle-section></middle-section>
   <some-photos></some-photos>
-  <footer-page></footer-page>
  </el-col>
           </el-row>
           
@@ -52,10 +51,9 @@ import Application from '../views/Application.vue';
 import MiddleSection from '../components/MiddleSection.vue';
 import SomePhotos from '../components/SomePhotos.vue';
 
-import FooterPage from '../components/FooterPage.vue';
 export default {
     components:{
-      TheVideos, Application, MiddleSection, SomePhotos, FooterPage
+      TheVideos, Application, MiddleSection, SomePhotos
        
     },
     data(){
