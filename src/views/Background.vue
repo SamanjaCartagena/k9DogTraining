@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div >
          <el-row>
  <el-col :span="24"><div class="grid-content">
   <div class="firstBackground">
@@ -37,7 +37,7 @@
  </el-col>
           </el-row>
           
-          
+          <footer-page class='backgroundfooter'></footer-page>
    </div>
 </template>
 
@@ -50,10 +50,10 @@ import TheVideos from '../components/TheVideos.vue';
 import Application from '../views/Application.vue';
 import MiddleSection from '../components/MiddleSection.vue';
 import SomePhotos from '../components/SomePhotos.vue';
-
+import FooterPage from '../components/FooterPage.vue';
 export default {
     components:{
-      TheVideos, Application, MiddleSection, SomePhotos
+      TheVideos, Application, MiddleSection, SomePhotos, FooterPage
        
     },
     data(){
@@ -100,6 +100,7 @@ export default {
     position: relative;
     text-align: center;
     bottom:160px;
+    height:auto;
     font-size: 25px;
     overflow:hidden;
     width:fit-content;
@@ -276,7 +277,10 @@ li:hover{
     
 
 @media only screen and (max-width: 700px) {
-
+.backgroundfooter{
+    position: relative;
+    bottom:500px;
+}
 
 .img1{
     max-width:100%;

@@ -1,18 +1,16 @@
 <script setup>
 import Background from "./views/Background.vue"
 import TheHeader from "./components/TheHeader.vue"
-import FooterPage from "./components/FooterPage.vue"
   
 
 
-  components: { TheHeader,Background, FooterPage }</script>
+  components: { TheHeader,Background }</script>
 
 <template>
 
   <div>
     <the-header></the-header>
   <router-view></router-view>
-  <footer-page></footer-page>
   </div>
 </template>
 
@@ -24,8 +22,7 @@ body{
   padding:0;
   margin:0;
   font-family:'Didact Gothic';
-
-
+  height:auto;
 }
 #app{
   padding:0;

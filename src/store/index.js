@@ -7,9 +7,17 @@ const store = createStore({
       boxshow:false
     }
   },
-  mutations: {
-    
+  actions:{
+      changebox({commit},payload){
+        commit('changed',payload)
+      }
   },
+  mutations: {
+    changed(state,payload){
+      return state.boxshow=payload
+    }
+  },
+ 
 
 })
 

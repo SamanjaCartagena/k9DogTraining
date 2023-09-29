@@ -1,7 +1,7 @@
 <template>
   <div>
    <footer class="footer" style='background-color:black;
-   color:white'>
+   color:white;'>
   <div class="content has-text-centered">
     <p style='color:white'>
       Copyrights &copy Black Mountain K9 Search and Rescue
@@ -24,6 +24,7 @@ export default {
     background-color: black;
     z-index: 1000;
     color:#d5a341;
+    border-top:1px solid #d5a341;
 }
 @media only screen and (max-width: 700px) {
 .footer{

@@ -4,7 +4,7 @@
     <div class='column'>
           <div class="card" style='background-color:transparent'>
   <div class="card-content">
-        <img :src="this.pic20"  class='images' />
+        <img :src="this.pic20"  class='images image1' />
 
     
   </div>
@@ -175,11 +175,12 @@
 </div>
     </div>
    </div>
-  <el-carousel :interval="4000" type="card" height="600px" >
-    <el-carousel-item v-for="item in 6" :key="item">
-      <h3 text="2xl" justify="center">{{ item }}</h3>
+  <el-carousel :interval="4000" type="card" height="700px" >
+    <el-carousel-item v-for="pic in pics" :key="pic.id">
+     <img :src="pic" style='height:100%; width:100%'/>
     </el-carousel-item>
   </el-carousel>
+  <footer-page class='galleryfooter'></footer-page>
   </div>
 </template>
 
@@ -194,7 +195,9 @@ import pic34 from '../assets/pic34.jpg';
 import pic35 from '../assets/pic35.jpg';
 import black from '../assets/black.png';
 import pic36 from '../assets/pic36.jpg';
+import FooterPage from '../components/FooterPage.vue';;
 export default {
+      components:{FooterPage},
   data(){
     return{
       pic20:pic20,
@@ -206,7 +209,8 @@ export default {
       pic34:pic34,
       pic35:pic35,
       pic36:pic36,
-      black:black
+      black:black,
+      pics:[pic20,pic21,pic31,pic32,pic33,pic34]
     }
   },
   created(){
@@ -225,16 +229,14 @@ export default {
   background-image: url('../assets/background.jpg');
   background-size: 100%;
   background-repeat: repeat-y;
+  border-top:.75px solid #d5a341;
 
 }
-.el-carousel__item h3 {
-  color: #475669;
-  opacity: 0.75;
-  line-height: 200px;
-  margin: 0;
-  
-  text-align: center;
+.galleryfooter{
+      position: relative;
+      bottom:720px;
 }
+
 
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
@@ -264,7 +266,13 @@ export default {
        animation: spin 4s;
 }
 @media only screen and (max-width: 700px) {
-
+      .image1{
+            position: relative;
+            top:30px;
+      }
+.logocard{
+      height:0px;
+}
 .logoImage{
  position: relative;
 bottom:590px;
@@ -276,6 +284,23 @@ bottom:590px;
     border-radius:50%;
        animation: spin 4s;
 }
+.el-carousel {
+      height:400px;
+      width:100%;
+      
+}
+.el-carousel__item{
+      height:400px;
+      width: 100%;
+}
+
+.galleryfooter{
+    position: relative;
+    bottom:3150px;
+    z-index: 1000;
+     
+}
+
 
 }
 </style>

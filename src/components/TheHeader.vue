@@ -3,7 +3,7 @@
 <template>
   <div>
     <nav class="navbar" style='height:100px;' role="navigation" aria-label="main navigation">
-  <div class="navbar-brand" @click='menushow'>
+  <div class="navbar-brand" @click='burgerclicked'>
    
 
     <a role="button" class="navbar-burger"  aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -22,7 +22,7 @@
       <a class="navbar-item" @click='gallery'>
         Gallery
       </a>
- <a class="navbar-item">
+ <a class="navbar-item" @click='news'>
         News
       </a>
       
@@ -42,7 +42,7 @@
 </nav>
 <div class='boxshow1' v-if='this.$store.state.boxshow'>
 <ul >
-  <li v-for="menu in menus" :key="menu.id" style='border:1px solid white;height:30px;'>
+  <li v-for="menu in menus" :key="menu.id" style='border:1px solid white;height:40px;padding-top:5px;' @click='menuclicked(menu)'>
     {{menu}}
     </li>
 
@@ -85,21 +85,43 @@ export default {
    
       youtube:youtube,
       
-      menus:['Gallery', 'News', 'Follow', 'About']
+      menus:['Home','Gallery', 'News', 'Follow', 'About']
 
     }
   },
+created(){
 
+
+},
 methods:{
-  menushow(){
-    if(this.boxshow==false){
-   this.boxshow=true;
-    }
-    else if(this.boxshow==true){
-      this.boxshow=false;
-    }
-   console.log('menu has been clicked')
-  },
+ burgerclicked(){
+   if(this.$store.state.boxshow==false){
+           this.$store.dispatch('changebox',true)
+           console.log('The state of the box is '+this.$store.state.boxshow)
+           }
+  else if(this.$store.state.boxshow==true){
+               this.$store.dispatch('changebox',false)
+               console.log('The state of the box is '+this.$store.state.boxshow)
+
+  }
+ },
+ menuclicked(v){
+   if(v.includes('Gallery')){
+    console.log('gallery has been clicked')
+    this.$router.push({path:'/gallery'})
+    this.$store.dispatch('changebox',false)
+   }
+   else if(v.includes('Home')){
+    this.$router.push('home has been clicked')
+    this.$router.push({path:'/'})
+    this.$store.dispatch('changebox',false)
+   }
+    else if(v.includes('News')){
+    this.$router.push('news has been clicked')
+    this.$router.push({path:'/newspage'})
+    this.$store.dispatch('changebox',false)
+   }
+ },
   iconclicked(v){
     if(v.includes('facebook')){
       window.open('https://www.facebook.com/groups/409712361276865')
@@ -118,6 +140,9 @@ methods:{
   },
   homepage(){
     this.$router.push({path:'/'})
+  },
+  news(){
+    this.$router.push({path:'/newspage'})
   }
   
   }
@@ -194,5 +219,12 @@ a:hover{
   color:#d5a341;
   z-index: 1000;
   text-align: center;
+}
+@media only screen and (min-width: 700px) {
+  .boxshow1{
+    display: none;
+
+  }
+  
 }
 </style>

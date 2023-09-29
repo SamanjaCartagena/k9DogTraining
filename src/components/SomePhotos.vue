@@ -76,7 +76,7 @@
   <div class="column">
     <div class="card">
   <div class="card-content">
-        <img :src="this.pic9"  class='images' />
+        <img :src="this.pic25"  class='images' />
 
     
   </div>
@@ -109,7 +109,7 @@ import pic21 from '../assets/pic21.jpg'
 import pic22 from '../assets/pic22.jpg'
 import pic23 from '../assets/pic23.jpg'
 import pic24 from '../assets/pic24.jpg'
-import veteran from '../assets/veterans.jpg'
+import pic25 from '../assets/pic25.jpg'
 export default {
   data(){
     return{
@@ -130,6 +130,7 @@ export default {
         pic22:pic22,
         pic23:pic23,
         pic24:pic24,
+        pic25:pic25,
         picset1:false
     }
   },
@@ -162,12 +163,11 @@ export default {
 .pics{
   position: relative;
   top:730px;
- background-image:url('../assets/flag.jpg');
+background-image:url('../assets/flag.jpg');
   background-repeat: no-repeat;
   background-size:100%; 
    height:auto;
   width:100%;
-
   z-index: 1000;
 
     
@@ -225,12 +225,8 @@ iframe{
   height:350px;
   border:1px solid #d5a341;
   border-radius: 3px;
-  animation: fade 5s;
 }
-@keyframes fade {
-  from {opacity:.5}
-  to {opacity: 1;}
-}
+
 .images:hover{
   cursor: pointer;
 }
@@ -262,6 +258,7 @@ iframe{
 .columns{
   margin:0px;
   padding: 0px;
+  
 }
 }
 
