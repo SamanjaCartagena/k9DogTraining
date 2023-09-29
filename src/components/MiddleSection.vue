@@ -23,18 +23,16 @@ export default {
     z-index: 5000;
     position: relative;
     top:730px;
-    background-image: url('../assets/yosemite.jpg');
+    background-color: black;
     border-top:2px solid #d5a341 ;
     border-bottom:2px solid #d5a341 ;
     color:#d5a341 ;
     text-align: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
+  
 }
 .about{
-    font-style:italic;
-    padding:10px;
-        font-size: 25px;
+    padding:20px;
+        font-size: 30px;
 
 }
 @media only screen and (max-width: 700px) {
@@ -48,7 +46,7 @@ export default {
     background-size: 100%;
     border-top:2px solid #d5a341 ;
     border-bottom:2px solid #d5a341 ;
-    color:#d5a341 ;
+    color:black ;
    
     background-repeat: no-repeat;
     background-size: 110%;
