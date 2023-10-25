@@ -29,6 +29,32 @@
 
   </el-dialog>
 
+ <el-dialog
+    v-model="volunteerwork"
+    width="80%"
+    :before-close="handleClose"
+  >
+  <h1 style='text-align:center;'>Volunteer Application</h1>
+  <img :src="this.black" class='applylogo' style="width:100px;height:100px;border-radius:50%;
+  "/>
+  <form>
+    <input placeholder="Full Name"/>
+    <input type="email" placeholder='Email' />
+    <textarea value="Tell us why you want to volunteer">
+
+    </textarea>
+
+
+  </form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="volunteerwork = false">Cancel</el-button>
+        <el-button type="primary" @click="volunteerwork = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
   <div class="msg1">
     <p id="message1">{{this.message1}}</p>
  
@@ -66,7 +92,7 @@ import image2 from '../assets/black.png';
 import brochure1 from '../assets/brochure1.jpg'
 import brochure2 from '../assets/brochure2.jpg'
 import TheVideos from '../components/TheVideos.vue';
-
+import black from '../assets/black.png'
 import Application from '../views/Application.vue';
 import MiddleSection from '../components/MiddleSection.vue';
 import SomePhotos from '../components/SomePhotos.vue';
@@ -83,6 +109,7 @@ export default {
             message1:'WELCOME TO',
             message2:'BLACK MOUNTAIN K9 SEARCH & RESCUE',
             image2,
+            black:black,
             brochure1:brochure1,
             brochure2:brochure2,
             dialogVisible:false,
@@ -122,6 +149,9 @@ export default {
 </script>
 
 <style scoped>
+input{
+  margin: 1px;
+}
 .msg3{
     color:white;
     position: relative;
@@ -197,6 +227,10 @@ export default {
 .logo{
     z-index: 100;
    
+}
+.applylogo{
+  position: relative;
+
 }
 .logoImage{
     position: absolute;
@@ -300,7 +334,14 @@ li:hover{
     z-index: 0;
 }
 
+.applylogo{
+         animation: spin 4s;
+         position: relative;
+        left:45%;
+        
+         border:2px solid white;
 
+}
 
 
 
@@ -312,6 +353,7 @@ li:hover{
     position: relative;
     bottom:500px;
 }
+
 
 .img1{
     max-width:100%;
