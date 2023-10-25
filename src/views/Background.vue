@@ -11,10 +11,24 @@
   <div class="secondNav"	has-text-centered has-text-justified>
     <ul>
         <center>
-     <li  v-for="item in nav2Items" :key="item.id" @click="navbar(item)">{{item}}</li>
+     <li class='navitems'  v-for="item in nav2Items" :key="item.id" @click="navbar(item)">{{item}}</li>
         </center>
    </ul>
   </div>
+
+
+  <el-dialog
+    v-model="dialogVisible"
+   
+    width="80%"
+    
+    :before-close="handleClose"
+  >
+    <img :src="this.brochure1" style="width:100%;height:100%"/>
+       <img :src="this.brochure2" style="width:100%;height:100%"/>
+
+  </el-dialog>
+
   <div class="msg1">
     <p id="message1">{{this.message1}}</p>
  
@@ -32,10 +46,15 @@
   </div>
   </div>
   </div>
-  <middle-section></middle-section>
+  
+
+
+  <middle-section style='z-index:0;'></middle-section>
   <some-photos></some-photos>
  </el-col>
           </el-row>
+
+
           
           <footer-page class='backgroundfooter'></footer-page>
    </div>
@@ -44,7 +63,8 @@
 <script>
 import image1 from '../assets/dog2.png';
 import image2 from '../assets/black.png';
-
+import brochure1 from '../assets/brochure1.jpg'
+import brochure2 from '../assets/brochure2.jpg'
 import TheVideos from '../components/TheVideos.vue';
 
 import Application from '../views/Application.vue';
@@ -63,24 +83,31 @@ export default {
             message1:'WELCOME TO',
             message2:'BLACK MOUNTAIN K9 SEARCH & RESCUE',
             image2,
-            
-            showModal:false,
+            brochure1:brochure1,
+            brochure2:brochure2,
+            dialogVisible:false,
+            mission:false,
+            donate:false,
+            volunteerwork:false
 
         }
     },
     methods:{
-        closeModal(){
-         this.showModal= false;
-        },
+       
         navbar(v){
           if(v.includes("VOLUNTEER")){
-            this.showModal=true;
+            this.volunteerwork=true;
+
+
+
           }
           else if(v.includes("DONATE")){
             console.log("Donate was clicked")
           }
           else if(v.includes("MISSION")){
-            console.log("Volunteer was clicked")
+            this.mission=true
+            this.dialogVisible=true
+          
           }
         },
       
@@ -113,6 +140,10 @@ export default {
     blink-caret .75s step-end infinite;
 
 }
+
+
+
+
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
@@ -298,6 +329,10 @@ li:hover{
     border-radius:50%;
        animation: spin 4s;
 }
+el-dialog{
+  width:100%;
+  z-index: 5000;
+}
 li{
         z-index: 100;
     width:100%;
@@ -308,10 +343,18 @@ li{
     margin:10px;
     padding:10px;
     position: relative;
-    bottom:180px;
+    right:28px;
+    bottom:170px;
     text-align: center;
 
 
+}
+
+li:hover{
+   width:100px;
+    background: #f6b243;
+    color:black;
+    cursor: pointer;
 }
 .mess2{
          position: absolute;

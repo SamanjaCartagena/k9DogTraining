@@ -26,13 +26,13 @@ export default {
     background-color: black;
     border-top:2px solid #d5a341 ;
     border-bottom:2px solid #d5a341 ;
-    color:#d5a341 ;
+    color:white ;
     text-align: center;
   
 }
 .about{
     padding:20px;
-        font-size: 30px;
+        font-size: 25px;
 
 }
 @media only screen and (max-width: 700px) {
@@ -42,11 +42,10 @@ export default {
     z-index: 5000;
     position: absolute;
     top:300px;
-    background-image: url('../assets/yosemite.jpg');
-    background-size: 100%;
+    background-color: black;
     border-top:2px solid #d5a341 ;
     border-bottom:2px solid #d5a341 ;
-    color:black ;
+    color:white ;
    
     background-repeat: no-repeat;
     background-size: 110%;

@@ -28,7 +28,7 @@ export default {
 }
 @media only screen and (max-width: 700px) {
 .footer{
-    position: absolute;
+    position: relative;
     top:3150px;
     background-color: black;
     font-size: 15px;

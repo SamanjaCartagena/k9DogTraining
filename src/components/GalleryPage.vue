@@ -4,7 +4,7 @@
     <div class='column'>
           <div class="card" style='background-color:transparent'>
   <div class="card-content">
-        <img :src="this.pic20"  class='images image1' />
+        <img :src="this.pic20"  class='images image1'  />
 
     
   </div>
@@ -32,7 +32,7 @@
     <div class='column'>
           <div class="card" style='background-color:transparent'>
   <div class="card-content">
-        <img :src="this.pic31"  class='images' />
+        <img :src="this.pic31"  class='images'  />
 
     
   </div>
@@ -134,7 +134,7 @@
     <div class='column'>
           <div class="card" style='background-color:transparent'>
   <div class="card-content">
-        <img :src="this.pic28"  class='images' />
+        <img :src="this.pic28"  class='images'/>
 
     
   </div>
@@ -145,7 +145,7 @@
     <div class='column'>
           <div class="card" style='background-color:transparent'>
   <div class="card-content">
-        <img :src="this.pic26"  class='images' />
+        <img :src="this.pic26"  class='images'  />
 
     
   </div>
@@ -167,7 +167,7 @@
     <div class='column'>
           <div class="card" style='background-color:transparent'>
   <div class="card-content">
-        <img :src="this.pic44"  class='images' />
+        <img :src="this.pic44"  class='images'  />
 
     
   </div>
@@ -175,6 +175,7 @@
 </div>
     </div>
    </div>
+  
   <el-carousel :interval="4000" type="card" height="700px" >
     <el-carousel-item v-for="pic in pics" :key="pic.id">
      <img :src="pic" style='height:100%; width:100%'/>
@@ -228,14 +229,15 @@ export default {
       pic44:pic44,
       pic45:pic45,
       black:black,
-      pics:[pic20,pic21,pic31,pic32,pic33,pic34]
+      dialogVisible:false,
+      pics:[pic20,pic31,pic32,pic33,pic34,pic45,pic43, pic34, pic36, pic25]
     }
   },
-  created(){
-  
-
-
-  }
+   methods:{
+      visibility(v){
+            console.log(v+'pic was clicked')
+      }
+   }
 
 }
 </script>
@@ -265,7 +267,7 @@ export default {
 }
 .images{
   width:100%;
-  height:400px;
+  height:450px;
  margin:0px;
  padding:0px;
  border:3px solid white;
@@ -283,9 +285,7 @@ export default {
     border-radius:50%;
        animation: spin 4s;
 }
-.images:hover{
-      cursor: pointer;
-}
+
 @media only screen and (max-width: 700px) {
       .image1{
             position: relative;
